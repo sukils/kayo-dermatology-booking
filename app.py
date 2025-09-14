@@ -1513,5 +1513,5 @@ if __name__ == '__main__':
     # アプリケーション起動
     logger.info("予約管理アプリを起動します")
     # 本番環境では環境変数からポートを取得
-    port = int(os.environ.get('PORT', 8080))
+    port = int(os.environ.get('PORT', 5000))
     app.run(debug=False, host='0.0.0.0', port=port)
