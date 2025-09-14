@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新規予約 - かよ皮膚科予約管理システム</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">🏥 かよ皮膚科</h1>
+            <p class="subtitle">新規予約</p>
+        </header>
+
+        <nav class="nav-menu">
+            <a href="/" class="nav-link">ホーム</a>
+            <a href="/booking" class="nav-link active">予約フォーム</a>
+            <a href="/advance" class="nav-link">事前予約</a>
+            <a href="/scheduled" class="nav-link">スケジュール予約</a>
+            <a href="/history" class="nav-link">予約履歴</a>
+        </nav>
+
+        <main class="main">
+            <div class="booking-form-container">
+                <h2>📅 新規予約フォーム</h2>
+                
+                <form id="bookingForm" class="booking-form">
+                    <div class="form-group">
+                        <label for="patient_number" class="form-label">患者番号 *</label>
+                        <input 
+                            type="text" 
+                            id="patient_number" 
+                            name="patient_number" 
+                            class="form-input" 
+                            placeholder="例: 1527" 
+                            required
+                        >
+                        <small class="form-help">診察券に記載されている患者番号を入力してください</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="birth_date" class="form-label">誕生日 *</label>
+                        <input 
+                            type="date" 
+                            id="birth_date" 
+                            name="birth_date" 
+                            class="form-input" 
+                            required
+                        >
+                        <small class="form-help">生年月日を選択してください</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="booking_time" class="form-label">希望予約時間</label>
+                        <select id="booking_time" name="booking_time" class="form-select">
+                            <option value="09:15">09:15</option>
+                            <option value="12:00">12:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="16:00">16:00</option>
+                        </select>
+                        <small class="form-help">受付開始時間を選択してください（9:15推奨）</small>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary btn-large">
+                            🚀 予約を実行
+                        </button>
+                        <a href="{{ url_for('index') }}" class="btn btn-secondary">
+                            ← 戻る
+                        </a>
+                    </div>
+                </form>
+
+                <div id="bookingStatus" class="booking-status" style="display: none;">
+                    <div class="status-content">
+                        <div id="statusIcon" class="status-icon"></div>
+                        <h3 id="statusTitle" class="status-title"></h3>
+                        <p id="statusMessage" class="status-message"></p>
+                        <div id="statusDetails" class="status-details"></div>
+                    </div>
+                </div>
+
+                <div class="booking-info">
+                    <h3>ℹ️ 予約について</h3>
+                    <ul>
+                        <li>予約は受付時間内（9:15開始）に自動で実行されます</li>
+                        <li>患者番号と誕生日は正確に入力してください</li>
+                        <li>予約完了後、Googleカレンダーに自動登録されます</li>
+                        <li>予約履歴は「予約履歴」ページで確認できます</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2025 かよ皮膚科予約管理システム</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/booking.js') }}"></script>
+</body>
+</html>

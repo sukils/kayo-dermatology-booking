@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>かよ皮膚科予約管理システム</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">🏥 かよ皮膚科</h1>
+            <p class="subtitle">予約管理システム</p>
+        </header>
+        
+        <main class="main">
+            <div class="hero-section">
+                <h2>簡単・確実な予約管理</h2>
+                <p>かよ皮膚科の予約を簡単に行い、Googleカレンダーに自動登録できます</p>
+                <div class="booking-types">
+                    <div class="booking-type">
+                        <h3>📅 数日後予約</h3>
+                        <p>平日12:00-16:00、土曜12:00まで</p>
+                        <p>患者番号と誕生日で事前予約可能</p>
+                    </div>
+                    <div class="booking-type">
+                        <h3>⏰ 当日順番受付</h3>
+                        <p>受付開始時刻（09:15）以降</p>
+                        <p>当日の順番受付も対応</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <a href="{{ url_for('booking_form') }}" class="btn btn-primary">
+                    📝 新規予約
+                </a>
+                <a href="{{ url_for('scheduled_booking') }}" class="btn btn-success">
+                    🕐 スケジュール予約
+                </a>
+                <a href="{{ url_for('booking_history') }}" class="btn btn-secondary">
+                    📋 予約履歴
+                </a>
+            </div>
+            
+            <div class="info-cards">
+                <div class="info-card">
+                    <h3>🏥 病院情報</h3>
+                    <p><strong>名称:</strong> {{ config.hospital_info.name }}</p>
+                    <p><strong>住所:</strong> {{ config.hospital_info.address }}</p>
+                    <p><strong>電話:</strong> {{ config.hospital_info.phone }}</p>
+                    <p><strong>Web:</strong> <a href="{{ config.hospital_info.web_url }}" target="_blank">公式サイト</a></p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>⏰ 受付時間・方式</h3>
+                    <p><strong>Web予約受付:</strong></p>
+                    <ul>
+                        <li>平日（月〜金）: 12:00〜16:00</li>
+                        <li>土曜日: 12:00まで</li>
+                        <li>日曜日: 休診</li>
+                    </ul>
+                    <p><strong>当日順番受付:</strong> 09:15開始</p>
+                    <p><strong>現在の状況:</strong> <span id="receptionStatus">確認中...</span></p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>📱 システム機能</h3>
+                    <p>✅ 数日後の事前予約</p>
+                    <p>✅ 当日の順番受付</p>
+                    <p>✅ 予約履歴管理</p>
+                    <p>✅ Googleカレンダー連携</p>
+                    <p>✅ リアルタイム状況確認</p>
+                    <p>✅ 予約完了通知</p>
+                </div>
+            </div>
+            
+            <div class="system-notice">
+                <h3>📋 システムについて</h3>
+                <div class="notice-content">
+                    <p><strong>このシステムの特徴:</strong></p>
+                    <ul>
+                        <li><strong>数日後予約:</strong> 平日12:00-16:00、土曜12:00まで事前予約可能</li>
+                        <li><strong>当日順番受付:</strong> 受付開始時刻（09:15）以降に利用可能</li>
+                        <li>診察券番号と誕生日で本人確認</li>
+                        <li>予約完了後、Googleカレンダーに自動登録</li>
+                        <li>予約履歴で過去の予約状況を確認可能</li>
+                    </ul>
+                    <p><strong>ご利用方法:</strong></p>
+                    <ol>
+                        <li>予約したい日時を選択</li>
+                        <li>診察券番号と誕生日を入力</li>
+                        <li>「新規予約」ボタンをクリック</li>
+                        <li>予約完了後、予約番号が発行されます</li>
+                    </ol>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="footer">
+            <p>&copy; 2025 かよ皮膚科予約管理システム</p>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

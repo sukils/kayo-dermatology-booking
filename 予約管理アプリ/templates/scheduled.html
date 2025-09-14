@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スケジュール予約 - かよ皮膚科</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">🏥 かよ皮膚科</h1>
+            <p class="subtitle">スケジュール予約管理</p>
+        </header>
+        
+        <main class="main">
+            <div class="scheduled-section">
+                <div class="important-notice">
+                    <h3>📅 スケジュール予約について</h3>
+                    <p><strong>この機能の特徴:</strong></p>
+                    <ul>
+                        <li>先の日付の予約を事前に設定可能</li>
+                        <li>指定した日時に自動で予約を実行</li>
+                        <li>受付開始時刻（09:15）に合わせて自動実行</li>
+                        <li>予約結果を履歴で確認可能</li>
+                    </ul>
+                </div>
+                
+                <div class="scheduled-form-container">
+                    <h3>🕐 スケジュール予約の設定</h3>
+                    <form id="scheduledBookingForm" class="scheduled-booking-form">
+                        <div class="form-group">
+                            <label for="target_booking_date">予約希望日 *</label>
+                            <input type="date" id="target_booking_date" name="target_booking_date" required>
+                            <small>予約したい日付を選択してください（今日以降）</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="execution_time">実行時刻 *</label>
+                            <input type="datetime-local" id="execution_time" name="execution_time" required>
+                            <small>予約を実行する日時を選択してください（受付開始時刻09:15に合わせることを推奨）</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="patient_number">診察券番号 *</label>
+                            <input type="text" id="patient_number" name="patient_number" required 
+                                   placeholder="例: 12345" maxlength="10">
+                            <small>数字のみ入力してください</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="birth_date">誕生日 *</label>
+                            <input type="date" id="birth_date" name="birth_date" required>
+                            <small>生年月日を選択してください</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="booking_time">希望受付時間</label>
+                            <select id="booking_time" name="booking_time">
+                                <option value="09:15">09:15（受付開始）</option>
+                                <option value="09:30">09:30</option>
+                                <option value="09:45">09:45</option>
+                                <option value="10:00">10:00</option>
+                                <option value="10:15">10:15</option>
+                                <option value="10:30">10:30</option>
+                                <option value="10:45">10:45</option>
+                                <option value="11:00">11:00</option>
+                                <option value="11:15">11:15</option>
+                                <option value="11:30">11:30</option>
+                                <option value="11:45">11:45</option>
+                                <option value="12:00">12:00</option>
+                            </select>
+                            <small>受付開始時刻（09:15）以降の時間を選択してください</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <button type="submit" id="submitBtn" class="btn btn-primary">
+                                🚀 スケジュール予約設定
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div id="scheduledStatus" class="scheduled-status" style="display: none;">
+                        <div id="statusMessage"></div>
+                    </div>
+                </div>
+                
+                <div class="scheduled-list-container">
+                    <h3>📋 設定済みスケジュール予約</h3>
+                    <div class="scheduled-bookings-list" id="scheduledBookingsList">
+                        <div class="loading">読み込み中...</div>
+                    </div>
+                </div>
+                
+                <div class="back-link">
+                    <a href="/" class="btn btn-secondary">← トップページに戻る</a>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="footer">
+            <p>&copy; 2025 かよ皮膚科予約管理システム</p>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/scheduled.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PWAアイコン生成</title>
+</head>
+<body>
+    <canvas id="canvas" width="512" height="512" style="border: 1px solid #ccc;"></canvas>
+    <br>
+    <button onclick="generateIcons()">アイコンを生成</button>
+    <div id="downloads"></div>
+
+    <script>
+        function generateIcons() {
+            const sizes = [72, 96, 128, 144, 152, 192, 384, 512];
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            const downloads = document.getElementById('downloads');
+            
+            sizes.forEach(size => {
+                // キャンバスサイズを設定
+                canvas.width = size;
+                canvas.height = size;
+                
+                // 背景をクリア
+                ctx.clearRect(0, 0, size, size);
+                
+                // 背景色（緑）
+                ctx.fillStyle = '#4CAF50';
+                ctx.fillRect(0, 0, size, size);
+                
+                // 病院のアイコンを描画
+                ctx.fillStyle = 'white';
+                ctx.font = `${size * 0.4}px Arial`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('🏥', size/2, size/2 - size * 0.1);
+                
+                // テキスト
+                ctx.font = `${size * 0.15}px Arial`;
+                ctx.fillText('皮膚科', size/2, size/2 + size * 0.2);
+                
+                // ダウンロードリンクを作成
+                const link = document.createElement('a');
+                link.download = `icon-${size}x${size}.png`;
+                link.href = canvas.toDataURL();
+                link.textContent = `icon-${size}x${size}.png をダウンロード`;
+                link.style.display = 'block';
+                link.style.margin = '5px 0';
+                downloads.appendChild(link);
+            });
+        }
+    </script>
+</body>
+</html>

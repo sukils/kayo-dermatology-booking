@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Expires" content="0" /> 
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no, address=no">
+<title>かよ皮ふ科 - 順番受付サービス</title>
+<style type="text/css">
+.main-section {
+	margin-top:10px;
+	margin-bottom:40px;
+}
+.main-block {
+	margin-top:20px;	
+}
+.form-section {
+	margin-top:20px;
+}
+.form-section * {
+	margin:0;
+	padding:0;
+}
+.form-body {
+	margin-top:20px;
+}
+.form-title {
+	background-color:#f0f0f0;
+	padding:10px;
+	font-weight:bold;
+}
+.form-inp {
+	margin-top:10px;
+}
+.form-inp span {
+	margin-left:10px;
+}
+.form-desc {
+	margin-top:5px;
+	color:#666;
+}
+.form-desc div {
+	margin-top:2px;
+}
+.cur-selection {
+	border-top:1px dotted #dddddd;
+	border-bottom:1px dotted #dddddd;
+	padding:6px 6px;
+	width:90%;
+	margin:0 auto;
+	display:flex;
+	justify-content: flex-start;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+	background-color:#fcfcfc;
+	margin-bottom:20px;
+}
+.guidcaps {
+	text-align:center;
+	font-size:18px;
+	font-weight:bold;
+	margin:20px 0;
+}
+.inpguid {
+	background-color:#f9f9f9;
+	padding:15px;
+	margin:20px 0;
+	border-radius:5px;
+}
+.hissu {
+	color:red;
+	font-weight:bold;
+}
+.in-def {
+	padding:8px;
+	border:1px solid #ccc;
+	border-radius:3px;
+	width:200px;
+}
+.guiddt {
+	color:#666;
+	font-size:12px;
+	margin-top:5px;
+}
+.confirmguid {
+	margin:30px 0;
+	text-align:center;
+}
+.submitbtn {
+	padding:15px 30px;
+	background-color:#007bff;
+	color:white;
+	border:none;
+	border-radius:5px;
+	font-size:16px;
+	cursor:pointer;
+}
+.submitbtn:hover {
+	background-color:#0056b3;
+}
+</style>
+</head>
+<body>
+<div class="main-section">
+	<div class="Center1">
+		<div class="bodyw Center2">
+			<div class="cur-selection">
+				<div class="sels bc_0">
+					<div class="sel-subname">午前</div>
+					<div class="sel-datetime">2025年8月25日（月）</div>
+				</div>
+			</div>
+
+			<div class="guidcaps">
+				受付情報を入力してください
+			</div>
+
+			<div class="main-block">
+				<div class="form-section">
+					<form id="C1FM" name="C1FM" action="../jsp/rsvmodM04.jsp" method="post">
+						<div class="inpguid">
+							<div>以下の項目を入力して「入力内容を確認」ボタンを押してください</div>
+							<div><span class="hissu">**</span>&nbsp;の項目は必須入力です</div>
+						</div>
+
+						<div class="form-body">
+							<div class="form-title">
+								診察券番号&nbsp;<span class="hissu">**</span>
+							</div>
+							<div class="form-inp">
+								<input class="in-def in-pNo" type="text" name="pNo" maxlength="8" value="1527" autocomplete="nope">
+								<div class="guiddt">（半角数字）</div>
+							</div>
+						</div>
+
+						<div class="form-body BIRTHX">
+							<div class="form-title">
+								誕生日（月日）&nbsp;<span class="hissu">**</span>
+							</div>
+							<div class="form-inp">
+								<select name="pBDayMM" class="in-def in-pBDayMM">
+									<option value="01">01</option>
+									<option value="02">02</option>
+									<option value="03">03</option>
+									<option value="04">04</option>
+									<option value="05">05</option>
+									<option value="06">06</option>
+									<option value="07">07</option>
+									<option value="08" selected="selected">08</option>
+									<option value="09">09</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+								</select>
+								<span>&nbsp;月&nbsp;</span>
+								<select name="pBDayDD" class="in-def in-pBDayDD">
+									<option value="01">01</option>
+									<option value="02">02</option>
+									<option value="03">03</option>
+									<option value="04">04</option>
+									<option value="05">05</option>
+									<option value="06">06</option>
+									<option value="07">07</option>
+									<option value="08" selected="selected">08</option>
+									<option value="09">09</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+									<option value="13">13</option>
+									<option value="14">14</option>
+									<option value="15">15</option>
+									<option value="16">16</option>
+									<option value="17">17</option>
+									<option value="18">18</option>
+									<option value="19">19</option>
+									<option value="20">20</option>
+									<option value="21">21</option>
+									<option value="22">22</option>
+									<option value="23">23</option>
+									<option value="24">24</option>
+									<option value="25">25</option>
+									<option value="26">26</option>
+									<option value="27">27</option>
+									<option value="28">28</option>
+									<option value="29">29</option>
+									<option value="30">30</option>
+									<option value="31">31</option>
+								</select>
+								<span>&nbsp;日</span>
+							</div>
+						</div>
+
+						<input type="hidden" name="pSessyu" value="">
+						<input type="hidden" name="pCondition" value="">
+						<input type="hidden" name="pComment" value="">
+						<input type="hidden" name="pCure" value="">
+						<input type="hidden" name="clr" value="0">
+						<input type="hidden" name="pCtl" value="0">
+						<input type="hidden" name="agent" value="RSV1">
+						<input type="hidden" name="jobid" value="rsvmodM04">
+						<input type="hidden" name="callback" value="0">
+						<input type="hidden" name="ymd" value="202508250644">
+						<input type="hidden" name="subno" value="01">
+						<input type="hidden" name="subname" value="BB6CDC019CAD7600">
+						<input type="hidden" name="pFamily" value="1">
+						<input type="hidden" name="pBTemp" value="">
+
+						<div class="confirmguid Center1">
+							<div class="Center2">
+								<button class="submitbtn" type="submit">
+									<div class="caps">入力内容を確認</div>
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

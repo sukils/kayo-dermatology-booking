@@ -1,0 +1,80 @@
+{
+  "hospital_url": "https://www5.tandt.co.jp/cti/hs713/index_p.html",
+  "booking_times": [
+    {
+      "day": "monday",
+      "time": "12:05",
+      "enabled": true
+    },
+    {
+      "day": "tuesday",
+      "time": "12:05",
+      "enabled": true
+    },
+    {
+      "day": "wednesday",
+      "time": "12:05",
+      "enabled": true
+    },
+    {
+      "day": "thursday",
+      "time": "12:05",
+      "enabled": true
+    },
+    {
+      "day": "friday",
+      "time": "12:05",
+      "enabled": true
+    }
+  ],
+  "patient_info": {
+    "patient_number": "1527",
+    "birth_date": "1977-08-08"
+  },
+  "chrome_options": {
+    "headless": false,
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+  },
+  "wait_timeout": 20,
+  "retry_count": 3,
+  "page_elements": {
+    "booking_button": [
+      "//a[contains(text(), '順番受付')]",
+      "//a[contains(text(), '予約')]",
+      "//button[contains(text(), '予約')]",
+      "//a[contains(text(), 'Web予約')]",
+      "//button[contains(text(), 'Web予約')]"
+    ],
+    "patient_number_input": [
+      "//input[@name='patient_number']",
+      "//input[@name='patient_no']",
+      "//input[@name='patient_id']",
+      "//input[@placeholder='患者番号']",
+      "//input[@placeholder='患者No']",
+      "//input[@id='patient_number']",
+      "//input[@id='patient_no']",
+      "//input[@id='patient_id']"
+    ],
+    "birth_date_input": [
+      "//input[@name='birth_date']",
+      "//input[@name='birthday']",
+      "//input[@name='birth']",
+      "//input[@type='date']",
+      "//input[@placeholder='生年月日']",
+      "//input[@placeholder='誕生日']",
+      "//input[@id='birth_date']",
+      "//input[@id='birthday']",
+      "//input[@id='birth']"
+    ],
+    "submit_button": [
+      "//button[@type='submit']",
+      "//input[@type='submit']",
+      "//button[contains(text(), '送信')]",
+      "//button[contains(text(), '確認')]",
+      "//button[contains(text(), '予約')]",
+      "//input[@value='送信']",
+      "//input[@value='確認']",
+      "//input[@value='予約']"
+    ]
+  }
+}

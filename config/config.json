@@ -1,0 +1,29 @@
+{
+  "hospital_info": {
+    "name": "かよ皮膚科",
+    "address": "〒811-2101 福岡県糟屋郡宇美町宇美１丁目9-19",
+    "phone": "092-692-7339",
+    "web_url": "https://www5.tandt.co.jp/cti/hs713/index_p.html"
+  },
+  "booking_settings": {
+    "default_time": "09:15",
+    "max_retries": 3,
+    "timeout": 30
+  },
+  "google_calendar": {
+    "enabled": true,
+    "calendar_id": "primary",
+    "timezone": "Asia/Tokyo"
+  },
+  "email": {
+    "enabled": true,
+    "smtp_server": "smtp.gmail.com",
+    "smtp_port": 587,
+    "use_tls": true,
+    "username": "photosukils@gmail.com",
+    "password": "dbml jixz rlzj novs",
+    "from_email": "photosukils@gmail.com",
+    "from_name": "かよ皮膚科予約管理システム",
+    "default_recipient": "photosukils@gmail.com"
+  }
+}

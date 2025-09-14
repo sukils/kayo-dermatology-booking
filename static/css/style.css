@@ -1,0 +1,1608 @@
+/* 予約管理アプリ - メインスタイルシート */
+
+/* PWA対応の基本設定 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* PWA用のビューポート設定 */
+html {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+/* PWA用のボディ設定 */
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ヘッダー */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px 0;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+/* カレンダー連携状況表示 */
+.calendar-status {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    display: inline-block;
+}
+
+.status-label {
+    font-weight: 600;
+    color: #555;
+    margin-right: 10px;
+}
+
+.status-value {
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.status-value.connected {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.status-value.disconnected {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.status-value.checking {
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeaa7;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    font-weight: 300;
+}
+
+/* メインコンテンツ */
+.main {
+    margin-bottom: 40px;
+}
+
+.welcome-section {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.welcome-section h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.welcome-section p {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* アクションボタン */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    min-width: 200px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.9);
+    color: #2c3e50;
+    border: 2px solid #bdc3c7;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.btn-large {
+    padding: 20px 40px;
+    font-size: 1.2rem;
+    min-width: 250px;
+}
+
+/* 情報カード */
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.info-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+}
+
+.info-card h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.info-card p {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* 病院情報 */
+.hospital-info {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.hospital-info h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.info-item {
+    padding: 15px;
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 10px;
+    border-left: 4px solid #667eea;
+}
+
+.link {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+/* 予約フォーム */
+.booking-form-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.booking-form-container h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+.booking-form {
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-label {
+    display: block;
+    font-weight: 500;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.form-input,
+.form-select {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e1e8ed;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    background: white;
+}
+
+.form-input:focus,
+.form-select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-help {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+/* 予約状況表示 */
+.booking-status {
+    margin: 30px 0;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.booking-status.success {
+    background: rgba(46, 204, 113, 0.1);
+    border: 2px solid #2ecc71;
+}
+
+.booking-status.error {
+    background: rgba(231, 76, 60, 0.1);
+    border: 2px solid #e74c3c;
+}
+
+.booking-status.processing {
+    background: rgba(52, 152, 219, 0.1);
+    border: 2px solid #3498db;
+}
+
+.status-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.status-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.status-message {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.status-details {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+/* 予約情報 */
+.booking-info {
+    background: rgba(52, 152, 219, 0.1);
+    padding: 25px;
+    border-radius: 15px;
+    border-left: 4px solid #3498db;
+}
+
+.booking-info h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.booking-info ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.booking-info li {
+    padding: 8px 0;
+    color: #555;
+    position: relative;
+    padding-left: 25px;
+}
+
+.booking-info li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #3498db;
+    font-weight: bold;
+}
+
+/* フッター */
+.footer {
+    text-align: center;
+    padding: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .title {
+        font-size: 2rem;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        min-width: 250px;
+    }
+    
+    .info-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .booking-form-container {
+        padding: 25px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* アニメーション */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.info-card,
+.booking-form-container,
+.hospital-info {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* ローディング状態 */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 手動インストール案内 */
+.manual-install-guide {
+    background: #f8f9fa;
+    border: 2px solid #4CAF50;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.manual-install-guide h3 {
+    color: #4CAF50;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.install-steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.step {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 4px solid #4CAF50;
+}
+
+.step strong {
+    color: #333;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.step p {
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+    .install-steps {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* 予約履歴ページ */
+.history-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.history-header h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.history-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* 統計情報 */
+.stats-section {
+    margin-bottom: 30px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid #e1e8ed;
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+}
+
+.stat-card.success {
+    border-color: #2ecc71;
+    background: rgba(46, 204, 113, 0.1);
+}
+
+.stat-card.error {
+    border-color: #e74c3c;
+    background: rgba(231, 76, 60, 0.1);
+}
+
+.stat-card.info {
+    border-color: #3498db;
+    background: rgba(52, 152, 219, 0.1);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: #7f8c8d;
+    font-weight: 500;
+}
+
+/* フィルター */
+.filter-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(102, 126, 234, 0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.filter-controls {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filter-controls .form-select,
+.filter-controls .form-input {
+    min-width: 200px;
+}
+
+/* 予約一覧 */
+.bookings-list {
+    margin-bottom: 30px;
+}
+
+.booking-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    border: 2px solid #e1e8ed;
+    transition: all 0.3s ease;
+}
+
+.booking-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.booking-card.success {
+    border-color: #2ecc71;
+    background: rgba(46, 204, 113, 0.05);
+}
+
+.booking-card.error {
+    border-color: #e74c3c;
+    background: rgba(231, 76, 60, 0.05);
+}
+
+.booking-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.booking-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.status-icon {
+    font-size: 1.5rem;
+}
+
+.status-text {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.booking-date {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    font-weight: 500;
+}
+
+.booking-content {
+    margin-bottom: 20px;
+}
+
+.patient-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.info-item {
+    padding: 10px;
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 8px;
+    border-left: 3px solid #667eea;
+}
+
+.booking-message {
+    padding: 15px;
+    background: rgba(52, 152, 219, 0.1);
+    border-radius: 10px;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    line-height: 1.5;
+}
+
+.calendar-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    background: rgba(255, 193, 7, 0.1);
+    border-radius: 8px;
+    border-left: 3px solid #ffc107;
+    color: #856404;
+}
+
+.calendar-icon {
+    font-size: 1.2rem;
+}
+
+.booking-footer {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-small {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    min-width: auto;
+}
+
+/* モーダル */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 20px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px;
+    border-bottom: 2px solid #e1e8ed;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 1.5rem;
+}
+
+.modal-close {
+    font-size: 2rem;
+    color: #7f8c8d;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: #e74c3c;
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+.modal-footer {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    padding: 25px 30px;
+    border-top: 2px solid #e1e8ed;
+    flex-wrap: wrap;
+}
+
+/* 予約詳細 */
+.booking-details {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.detail-section h4 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    border-bottom: 2px solid #e1e8ed;
+    padding-bottom: 8px;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.detail-item {
+    padding: 12px;
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 8px;
+    border-left: 3px solid #667eea;
+}
+
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.status-badge.success {
+    background: rgba(46, 204, 113, 0.2);
+    color: #27ae60;
+}
+
+.status-badge.failed {
+    background: rgba(231, 76, 60, 0.2);
+    color: #c0392b;
+}
+
+.calendar-linked {
+    padding: 15px;
+    background: rgba(46, 204, 113, 0.1);
+    border-radius: 10px;
+    border: 1px solid #2ecc71;
+}
+
+.calendar-linked p {
+    margin: 8px 0;
+    color: #2c3e50;
+}
+
+/* ページネーション */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.pagination button {
+    padding: 10px 15px;
+    border: 1px solid #e1e8ed;
+    background: white;
+    color: #2c3e50;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pagination button:hover {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+.pagination button.active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+.pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* データなし表示 */
+.no-bookings {
+    text-align: center;
+    padding: 60px 20px;
+    color: #7f8c8d;
+}
+
+.no-bookings p {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .history-container {
+        padding: 25px;
+    }
+    
+    .history-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .history-actions {
+        justify-content: center;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .filter-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filter-controls .form-select,
+    .filter-controls .form-input {
+        min-width: auto;
+    }
+    
+    .booking-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .patient-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 20px;
+    }
+    
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+        padding: 20px;
+    }
+    
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 事前予約ページ用スタイル */
+.advance-booking-section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.advance-booking-section h2 {
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+.advance-booking-form {
+    max-width: 600px;
+}
+
+.advance-booking-form .form-group {
+    margin-bottom: 25px;
+}
+
+.advance-booking-form .form-group small {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: block;
+}
+
+.advance-bookings-section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.advance-bookings-section h2 {
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+.advance-bookings-controls {
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.advance-booking-item {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #667eea;
+    transition: all 0.3s ease;
+}
+
+.advance-booking-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.advance-booking-item.pending {
+    border-left-color: #f39c12;
+}
+
+.advance-booking-item.completed {
+    border-left-color: #27ae60;
+}
+
+.advance-booking-item.failed {
+    border-left-color: #e74c3c;
+}
+
+.advance-booking-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.advance-booking-header h3 {
+    color: #2c3e50;
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.advance-status-badge {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.advance-status-badge.pending {
+    background: #f39c12;
+    color: white;
+}
+
+.advance-status-badge.completed {
+    background: #27ae60;
+    color: white;
+}
+
+.advance-status-badge.failed {
+    background: #e74c3c;
+    color: white;
+}
+
+.advance-booking-details {
+    margin-bottom: 20px;
+}
+
+.advance-detail-row {
+    display: flex;
+    margin-bottom: 12px;
+    align-items: center;
+}
+
+.advance-detail-row .label {
+    font-weight: 600;
+    color: #7f8c8d;
+    min-width: 120px;
+    margin-right: 15px;
+}
+
+.advance-detail-row .value {
+    color: #2c3e50;
+    flex: 1;
+}
+
+.advance-booking-actions {
+    text-align: right;
+}
+
+.advance-booking-actions .btn-sm {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    min-width: auto;
+}
+
+/* 事前予約ページのレスポンシブ対応 */
+@media (max-width: 768px) {
+    .advance-booking-section,
+    .advance-bookings-section {
+        padding: 20px;
+    }
+    
+    .advance-booking-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+    
+    .advance-detail-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 5px;
+    }
+    
+    .advance-detail-row .label {
+        min-width: auto;
+        margin-right: 0;
+    }
+    
+    .advance-booking-actions {
+        text-align: center;
+    }
+}
+
+/* 成功通知モーダルのスタイル */
+.success-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.success-modal-overlay.show {
+    opacity: 1;
+}
+
+.success-modal {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+.success-modal-overlay.show .success-modal {
+    transform: scale(1);
+}
+
+.success-modal-header {
+    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+    color: white;
+    padding: 25px 30px 20px;
+    border-radius: 20px 20px 0 0;
+    position: relative;
+    text-align: center;
+}
+
+.success-modal-header h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.modal-close-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.success-modal-body {
+    padding: 30px;
+    text-align: center;
+}
+
+.success-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: bounce 0.6s ease;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+.success-message {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.success-details {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    text-align: left;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.booking-number-highlight {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    margin: 25px 0;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+    }
+    50% {
+        box-shadow: 0 8px 35px rgba(255, 107, 107, 0.5);
+    }
+    100% {
+        box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+    }
+}
+
+.booking-number-highlight .label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+.booking-number-highlight .number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.success-modal-footer {
+    padding: 20px 30px 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.success-modal-footer .btn {
+    min-width: 160px;
+    padding: 15px 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.success-modal-footer .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .success-modal {
+        width: 95%;
+        margin: 20px;
+    }
+    
+    .success-modal-header {
+        padding: 20px 25px 15px;
+    }
+    
+    .success-modal-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .success-modal-body {
+        padding: 25px 20px;
+    }
+    
+    .success-icon {
+        font-size: 3rem;
+    }
+    
+    .success-message {
+        font-size: 1.1rem;
+    }
+    
+    .booking-number-highlight {
+        padding: 20px;
+    }
+    
+    .booking-number-highlight .number {
+        font-size: 2rem;
+    }
+    
+    .success-modal-footer {
+        padding: 15px 20px 25px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .success-modal-footer .btn {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
+/* 通知許可の案内 */
+.notification-permission-guide {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    color: #856404;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.notification-permission-guide .permission-btn {
+    background: #f39c12;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.notification-permission-btn:hover {
+    background: #e67e22;
+}
+
+/* ===== PWA (Progressive Web App) スタイル ===== */
+
+/* PWAインストールボタン */
+.btn-install {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    position: relative;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    -webkit-touch-callout: none;
+}
+
+.btn-install:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.btn-install:active {
+    transform: translateY(0);
+}
+
+/* PWA通知スタイル */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    z-index: 10000;
+    max-width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.3s ease-out;
+}
+
+.notification-success {
+    background-color: #4CAF50;
+}
+
+.notification-warning {
+    background-color: #FF9800;
+}
+
+.notification-error {
+    background-color: #F44336;
+}
+
+.notification-info {
+    background-color: #2196F3;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* PWA更新ボタン */
+.update-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 10000;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    touch-action: manipulation;
+    -webkit-touch-callout: none;
+}
+
+.update-button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+/* PWA用のタッチ操作最適化 */
+.btn, .update-button {
+    touch-action: manipulation;
+    -webkit-touch-callout: none;
+}
+
+/* PWA用のスクロール最適化 */
+.container {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+}
+
+/* PWA用のフルスクリーン対応 */
+@media (display-mode: standalone) {
+    body {
+        padding-top: env(safe-area-inset-top);
+        padding-bottom: env(safe-area-inset-bottom);
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+    }
+    
+    .header {
+        margin-top: 0;
+    }
+    
+    /* スタンドアロンモードでの追加スタイル */
+    .container {
+        padding-top: 10px;
+    }
+}
+
+/* PWA用のオフライン表示 */
+.offline-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #FF9800;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    z-index: 10001;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+}
+
+.offline-indicator.show {
+    transform: translateY(0);
+}
+
+/* PWA用のローディング表示 */
+.pwa-loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10002;
+}
+
+.pwa-loading .spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #4CAF50;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 手動インストール案内 */
+.manual-install-guide {
+    background: #f8f9fa;
+    border: 2px solid #4CAF50;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.manual-install-guide h3 {
+    color: #4CAF50;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.install-steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.step {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 4px solid #4CAF50;
+}
+
+.step strong {
+    color: #333;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.step p {
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+    .install-steps {
+        grid-template-columns: 1fr 1fr;
+    }
+}

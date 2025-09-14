@@ -1,0 +1,407 @@
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="Shift_JIS" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Expires" content="0" /> 
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no, address=no">
+<title>かよ皮ふ科 - 順番受付サービス</title>
+<link href="../common/normalize.css?20250827093511" rel="stylesheet">
+<link href="../common/mobilestyle.css?20250827093511" rel="stylesheet">
+<link href="../common/palette-purple.css?20250827093511" rel="stylesheet">
+<script src="../common/rsvmod.js?20250827093511"></script>
+<style type="text/css">
+<!--
+.main-section {
+	margin-top:26px;
+	margin-bottom:40px;
+}
+.main-block {
+	margin-top:20px;	
+}
+-->
+</style>
+<style type="text/css">
+<!--
+.form-section {
+	width:98%;
+	margin:0 auto;
+	font-size:14px;
+}
+.form-section * {
+	font-size:14px;
+}
+.inpguid {
+	background-color:#f9f9f9;
+	border-top:1px solid #dddddd;
+	border-left:1px solid #dddddd;
+	border-right:1px solid #dddddd;
+	padding:4px;
+}
+.inpguid > div[waku] {
+	border:1px dotted #dddddd;
+	background-color:#ffffcc;
+	padding:6px;
+}
+.inpguid > div[waku] > div {
+	font-size:14px;
+}
+.inpguid > div[mada] {
+	padding:8px;
+	color:#ff4c79;
+	border:1px dotted #ff4c79 !important;
+	background-color:#ffffff !important;
+	margin-bottom:6px;
+	border-radius:6px;
+}
+.inpguid > div[mada] > div {
+	font-size:14px;
+	text-align:center;
+	color:#ff4c79;
+}
+
+@media screen and (max-width: 319px) {
+	.inpguid > div[waku] > div {
+		font-size:12px;
+	}
+	.inpguid > div[mada] > div {
+		font-size:12px;
+	}
+}
+
+.errhd {
+	background-color:#f9f9f9;
+	border-top:1px solid #dddddd;
+	border-left:1px solid #dddddd;
+	border-right:1px solid #dddddd;
+	padding:4px;
+}
+.errhd > div[waku] {
+	border:1px solid #ff7396;
+	background-color:#ffffcc;
+	padding:6px;
+}
+.errhd > div[waku] > div {
+	color:#ff0000;
+	font-size:14px;
+}
+.errhd > div[waku] > div[err] {
+	text-align:center;
+}
+@media screen and (max-width: 319px) {
+	.errhd > div[waku] > div {
+		font-size:12px;
+	}
+}
+
+.form-body {
+	box-sizing:border-box;
+	width:100%;
+	background-color:#f9f9f9;
+	border-top:1px solid #dddddd;
+	border-left:1px solid #dddddd;
+	border-right:1px solid #dddddd;
+}
+
+.form-title {
+	background-color:#f9f9f9;
+	padding:10px;
+	padding-left:10px;
+	font-size:14px;
+	color:#404040;
+	font-weight:bold;
+	
+}
+.form-inp {
+	background-color:#ffffff;
+	padding:10px;
+	padding-bottom:10px;
+}
+.form-inp span {
+	font-size:12px;
+}
+.input-check {
+	font-size:15px;
+	color:#0000ff;
+	line-height:1.4;
+}
+.input-check[nm] {
+	line-height:1.6;
+}
+.warn-msg {
+	font-size:14px;
+	color:#ff265c;
+	line-height:1.4;
+}
+
+.confirmguid {
+	box-sizing:border-box;
+	width:100%;
+	border:1px solid #dddddd;
+	background-color:#fcfcfc;
+	padding:10px;
+}
+.submitbtn {
+
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+
+	border:1px solid #dddddd;
+	border-radius:50px;
+	margin:16px auto;
+	width:90%;
+	height:50px;
+	color:#cccccc;
+	outline:none;
+	cursor:pointer;
+}
+.submitbtn .caps {
+	font-size:18px;
+	font-weight:bold;
+	color:#ffffff;
+}
+.submitbtn .checks {
+	background-image:url(../graphics/checkbox.png);
+	background-repeat:no-repeat;
+	background-position:50% 50%;
+	padding:0;
+	width:24px;
+	height:24px;
+	margin-right:4px;
+}
+option {
+	font-size:14px;
+}
+@media screen and (max-width: 319px) {
+	.submitbtn {
+		border-radius:40px;
+		margin:10px auto;
+		width:96%;
+		height:40px;
+		color:#cccccc;
+		outline:none;
+		cursor:pointer;
+	}
+	.submitbtn .caps {
+		font-size:14px;
+	}
+	.submitbtn .dumcaps {
+		margin-left:4px;
+	}
+	.submitbtn .arrow {
+		margin-right:4px;
+	}
+	option {
+		font-size:12px;
+	}
+}
+
+-->
+</style>
+</head>
+<body>
+
+	<div class="head-section grd_2">
+		<div class="Center1">
+			<div class="bodyw Center2 fx">
+				<div class="head-title"><span p1>順番受付サービス</span>
+				</div>
+			</div>
+		</div>	
+	</div>
+	<div class="top-section">
+		<div class="Center1">
+			<div class="bodyw Center2 fx">
+		<div class="usr-name">かよ皮ふ科</div>
+				<div class="head-icon-x">
+					<div class="head-icon bg_1i"></div>
+				</div>
+			</div>
+		</div>	
+
+	</div>
+	
+	
+	<div class="main-section">
+		<div class="Center1">
+			<div class="bodyw Center2">
+
+				<div class="guidcaps">
+					ご記入内容を確認してください
+				</div>
+
+				<div class="main-block">
+
+					<div class="form-section">
+
+<div class="inpguid">
+	<div mada>
+		<div>まだ受付は完了していません</div>
+	</div>
+	<div waku>
+		<div>以下の内容で受付を行います。よろしければ「受付する」ボタンを押してください</div>
+	</div>
+</div>
+
+
+<div class="form-body">
+	<div class="form-title bg_2i">
+		受診科目
+	</div>
+	<div class="form-inp">
+<div class="input-check" nm>午前</div>
+	</div>
+</div>
+
+<div class="form-body">
+	<div class="form-title bg_2i">
+		受診日
+	</div>
+	<div class="form-inp">
+<div class="input-check">2025 年 8 月 27 日（水）</div>
+	</div>
+</div>
+
+<div class="form-body">
+	<div class="form-title bg_2i">
+		診察券番号
+	</div>
+	<div class="form-inp">
+		<div class="input-check">1527</div>
+	</div>
+</div>
+
+<div class="form-body">
+	<div class="form-title bg_2i">
+		お名前
+	</div>
+	<div class="form-inp">
+		<div class="input-check">池田　豊&nbsp;&nbsp;様</div>
+	</div>
+</div>
+
+
+
+
+<div class="form-body" style="display:none">
+	<div class="form-title bg_2i">
+		連絡先電話番号
+	</div>
+	
+	<div class="form-inp">
+		<div class="input-check"></div>
+	</div>
+</div>
+
+<div class="form-body" style="display:none">
+	<div class="form-title bg_2i">
+		メールアドレス
+	</div>
+	
+	<div class="form-inp">
+<div class="input-check"></div>
+	</div>
+</div>
+
+
+
+
+
+
+
+<form action="../jsp/JobDispatcher.jsp" method="post">
+
+<div class="confirmguid Center1">
+	<div class="Center2">
+		<button class="submitbtn btn-ef bg_0i bc_0" type="submit" >
+			<div class="checks"></div>
+			<div class="caps">受付する</div>
+		</button>
+	</div>
+</div>
+<input type="hidden" name="agent" value="RSV1">
+<input type="hidden" name="jobid" value="rsvmodM06">
+<input type="hidden" name="callback" value="0">
+<input type="hidden" name="ymd" value="202508270625">
+<input type="hidden" name="subno" value="01">
+<input type="hidden" name="subname" value="BB6CDC019CAD7600">
+<input type="hidden" name="linethru" value="0">
+</form>
+
+
+					</div>
+
+				
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<div class="nav-section">
+		<div class="Center1">
+			<div class="bodyw Center2">
+		
+		<a bk1 class="backto" href="../jsp/JobDispatcher.jsp?agent=RSV1&jobid=rsvmodM03&callback=0&ymd=202508270625&clr=0&subno=01&subname=BB6CDC019CAD7600">
+					<div class="backto-icon bg_1"></div>
+					<div class="backto-caps">前ページへ戻る</div>
+				</a>
+		<a class="goto-top" href="http://www5.tandt.co.jp/cti/hs713/index_P.html">
+					<div class="goto-top-icon"></div>
+					<div class="goto-top-caps">トップページへ戻る</div>
+				</a>
+			</div>
+		</div>	
+	</div>
+
+	<div id="fv"></div>
+	<div class="foot-section" id="footx">
+	
+<a href="http://www5.tandt.co.jp/cti/hs713/index_P.html">Presented by Time and Try.</a>
+	
+	</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+ 
+
+
+

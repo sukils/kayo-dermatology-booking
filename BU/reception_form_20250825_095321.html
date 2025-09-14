@@ -1,0 +1,931 @@
+
+
+
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="Shift_JIS" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Expires" content="0" /> 
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no, address=no">
+<title>かよ皮ふ科 - 順番受付サービス</title>
+<link href="../common/normalize.css?20250825095321" rel="stylesheet">
+<link href="../common/mobilestyle.css?20250825095321" rel="stylesheet">
+<link href="../common/palette-purple.css?20250825095321" rel="stylesheet">
+<script src="../common/rsvmod.js?20250825095321"></script>
+<style type="text/css">
+<!--
+.main-section {
+	margin-top:10px;
+	margin-bottom:40px;
+}
+.main-block {
+	margin-top:20px;	
+}
+-->
+</style>
+<style type="text/css">
+<!--
+.backto[bk1] {
+	display:flex;
+}
+.backto[bk2] {
+	display:none;
+}
+-->
+</style>
+<style type="text/css">
+<!--
+.cur-selection {
+	border-top:1px dotted #dddddd;
+	border-bottom:1px dotted #dddddd;
+	padding:6px 6px;
+	width:90%;
+	margin:0 auto;
+
+	display:flex;
+	justify-content: flex-start;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+	background-color:#fcfcfc;
+	margin-bottom:20px;
+	
+}
+.sel-icon-x {
+	margin-left:0px;
+	width:32px;
+	height:32px;
+	border-radius:32px;
+}
+.sel-icon {
+	background-image:url(../graphics/timecalendar24.png);
+	background-repeat:no-repeat;
+	background-position:50% 50%;
+	width:32px;
+	height:32px;
+	border-radius:32px;
+}
+.sels {
+	text-align:left;
+	margin-left:10px;
+}
+.sel-subname {
+	display:block;
+/*	font-size:14px; */
+	font-size:16px;
+	line-height:1.2;
+/*	font-weight:normal; */
+	font-weight:bold;
+	color:#2693ff;
+	word-break:break-all;
+}
+.sel-datetime {
+	margin-top:6px;
+}
+.sel-datetime a {
+	font-size:14px;
+	line-height:1.2;
+	color:#2693ff;
+}
+-->
+</style>
+<style type="text/css">
+<!--
+.form-section {
+	width:98%;
+	margin:0 auto;
+	font-size:14px;
+}
+.form-section * {
+	font-size:14px;
+}
+.rcvtab {
+	background-color:#ffffff !important;
+}
+.rcvtab span {
+	padding:6px 10px;
+	padding-left:10px;
+	padding-right:10px;
+	border:1px solid #dddddd;
+	border-bottom:0px;
+	display:inline-block;
+	font-size:14px;
+	margin-left:10px;
+	border-top-left-radius:4px;
+	border-top-right-radius:4px;
+	background-color:#f9f9f9;
+	
+}
+.inpguid {
+	background-color:#f9f9f9;
+	border-top:1px solid #dddddd;
+	border-left:1px solid #dddddd;
+	border-right:1px solid #dddddd;
+	padding:4px;
+}
+.inpguid > div[waku] {
+	border:1px dotted #dddddd;
+	background-color:#ffffcc;
+	padding:6px;
+}
+.inpguid > div[waku] > div {
+	font-size:14px;
+	word-break:break-all;
+}
+.inpguid > div[waku] > div[his] {
+	margin-top:4px;
+	text-align:center;
+}
+.hissu {
+	color:#ff0000;
+}
+@media screen and (max-width: 319px) {
+	.inpguid > div[waku] > div {
+		font-size:12px;
+	}
+}
+.errhd {
+	background-color:#f9f9f9;
+	border-top:1px solid #dddddd;
+	border-left:1px solid #dddddd;
+	border-right:1px solid #dddddd;
+	padding:4px;
+}
+.errhd > div[waku] {
+	border:1px solid #ff7396;
+	background-color:#ffffcc;
+	padding:6px;
+}
+.errhd > div[waku] > div {
+	color:#ff0000;
+	font-size:14px;
+}
+.errhd > div[waku] > div[err] {
+	text-align:center;
+}
+@media screen and (max-width: 319px) {
+	.errhd > div[waku] > div {
+		font-size:12px;
+	}
+}
+
+.form-body {
+	box-sizing:border-box;
+	width:100%;
+	background-color:#f9f9f9;
+	border-top:1px solid #dddddd;
+	border-left:1px solid #dddddd;
+	border-right:1px solid #dddddd;
+}
+
+.form-title {
+	background-color:#f9f9f9;
+	padding:10px;
+	padding-left:10px;
+	font-size:14px;
+	color:#404040;
+	font-weight:bold;
+	
+}
+.form-inp {
+	background-color:#ffffff;
+	padding:10px;
+	padding-bottom:20px;
+}
+.form-inp span {
+	font-size:12px;
+}
+
+.form-desc {
+	border:1px solid #dddddd;
+	background-color:#f9f9f9;
+	padding:10px;
+}
+.form-desc div {
+	border:1px dotted #dddddd;
+	background-color:#ffffcc;
+	text-align:center;
+	font-size:14px;
+	padding:10px;
+}
+
+.errdt {
+/*
+	color:#ff0000;
+	background-color:#ffffcc;
+*/
+	color:#ffffff;
+	background-color:#ff0000;
+	border:1px solid #ff7396;
+	font-size:14px;
+	padding:4px 10px;
+	margin-bottom:8px;
+}
+
+.in-def {
+	box-sizing:border-box;
+	font-size:16px;
+	color:#0000ff;
+	height:36px;
+	padding:4px 8px;
+	line-height:1.5;
+	border:1px solid #666666;
+	border-radius:4px;
+}
+.guiddt {
+	color:#666666;
+	text-align:left;
+	font-size:14px;
+	margin-top:4px;
+}
+.guiddt span {
+	color:#333333;
+	font-weight:bold;
+	font-size:14px;
+}
+.guiddt2 {
+	color:#666666;
+	text-align:left;
+	font-size:14px;
+	margin-top:4px;
+	line-height:1.4;
+}
+
+@media screen and (max-width: 319px) {
+	.errdt {
+		font-size:12px;
+	}
+	.guiddt2,
+	.guiddt,
+	.guiddt span {
+		font-size:12px;
+	}
+}
+
+
+.in-pNo {
+	width:160px;
+	ime-mode:inactive;
+}
+.out-pNo {
+	font-size:16px;
+	color:#0000ff;
+}
+
+.out-kjname {
+	font-size:16px;
+	color:#0000ff;
+}
+
+.in-pBDayMM,
+.in-pBDayDD {
+	width:74px;
+	height:34px;
+}
+
+.out-bday {
+	font-size:16px;
+	color:#0000ff;
+}
+.out-bday span {
+	font-size:12px;
+	color:#0000ff;
+}
+.in-pTelNo {
+	width:100%;
+	ime-mode:inactive;
+}
+.in-pMail {
+	width:100%;
+	ime-mode:inactive;
+}
+.in-pSessyu {
+	width:100%;
+	height:34px;
+}
+.in-pVac {
+	width:100%;
+	height:34px;
+}
+
+.famA {
+	font-size:14px !important;
+	background-color:#ccffff;
+	padding:4px 8px;
+}
+.famBx {
+	margin-top:8px;
+}
+.famB {
+	font-size:14px !important;
+	background-color:#ffcccc;
+	padding:4px 8px;
+}
+@media screen and (max-width: 319px) {
+	.famA {
+		font-size:12px !important;
+		padding:2px 4px;
+	}
+	.famB {
+		font-size:12px !important;
+		padding:2px 4px;
+	}
+}
+
+.fam-sect {
+	margin-top:8px;
+}
+.fam-sect-block {
+}
+.fam-sect-title {
+	padding-top:4px;
+	font-size:14px;
+}
+.fam-sect-inp {
+	padding-top:4px;
+	padding-bottom:10px;
+}
+
+.in-pFamNo {
+	width:160px;
+	ime-mode:inactive;
+}
+
+.in-pGFamName {
+	width:100%;
+	ime-mode:inactive;
+}
+.in-pGFamSex {
+	width:90px;
+	height:34px;
+}
+.in-pGFamBDayYY {
+	width:80%;
+	height:34px;
+}
+.in-pGFamBDayMM {
+	width:74px;
+	height:34px;
+}
+.in-pGFamBDayDD {
+	width:74px;
+	height:34px;
+}
+
+.in-pCure {
+	width:100%;
+	height:34px;
+}
+.in-pCondition {
+	width:100%;
+	height:60px;
+	ime-mode:active;
+}
+.in-pComment {
+	width:100%;
+	height:60px;
+	ime-mode:active;
+}
+.in-pBTemp {
+	width:80px;
+	ime-mode:inactive;
+}
+
+.confirmguid {
+	box-sizing:border-box;
+	width:100%;
+	border:1px solid #dddddd;
+	background-color:#fcfcfc;
+	padding:10px;
+}
+.submitbtn {
+
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+
+	border:1px solid #dddddd;
+	border-radius:50px;
+	margin:16px auto;
+	width:90%;
+	height:50px;
+	color:#cccccc;
+	outline:none;
+	cursor:pointer;
+}
+.submitbtn .caps {
+	font-size:18px;
+	font-weight:bold;
+	color:#ffffff;
+}
+.submitbtn .dumcaps {
+	width:24px;
+	height:24px;
+	padding:0;
+	margin-left:8px;
+}
+.submitbtn .arrow {
+	background-image:url(../graphics/arrow-w.png);
+	background-repeat:no-repeat;
+	background-position:50% 50%;
+	padding:0;
+	width:24px;
+	height:24px;
+	margin-right:8px;
+}
+option {
+	font-size:14px;
+}
+@media screen and (max-width: 319px) {
+	.submitbtn {
+		border-radius:40px;
+		margin:10px auto;
+		width:96%;
+		height:40px;
+		color:#cccccc;
+		outline:none;
+		cursor:pointer;
+	}
+	.submitbtn .caps {
+		font-size:14px;
+	}
+	.submitbtn .dumcaps {
+		margin-left:4px;
+	}
+	.submitbtn .arrow {
+		margin-right:4px;
+	}
+	option {
+		font-size:12px;
+	}
+}
+.BIRTHX {
+	display:block;
+}
+-->
+</style>
+</head>
+<body>
+
+	<div class="head-section grd_2">
+		<div class="Center1">
+			<div class="bodyw Center2 fx">
+				<div class="head-title"><span p1>順番受付サービス</span>
+				</div>
+			</div>
+		</div>	
+	</div>
+	<div class="top-section">
+		<div class="Center1">
+			<div class="bodyw Center2 fx">
+		<div class="usr-name">かよ皮ふ科</div>
+				<div class="head-icon-x">
+					<div class="head-icon bg_1i"></div>
+				</div>
+			</div>
+		</div>	
+
+	</div>
+	
+	
+	<div class="main-section">
+		<div class="Center1">
+			<div class="bodyw Center2">
+
+				<div class="cur-selection">
+
+					<div class="sel-icon-x grd_0"><div class="sel-icon"></div></div>
+					<div class="sels bc_0">
+				<a class="sel-subname" href="../jsp/JobDispatcher.jsp?agent=RSV1&jobid=rsvmodM01&callback=0">
+					午前
+						</a>
+						<div class="sel-datetime">
+					<a href="../jsp/JobDispatcher.jsp?agent=RSV1&jobid=rsvmodM01&callback=0">2025 年 8 月 25 日（月）</a>
+						</div>
+					</div>
+					
+				</div>
+
+				<div class="guidcaps">
+					受付情報を入力してください
+				</div>
+
+				<div class="main-block">
+
+
+					<div class="form-section">
+<!-- FORM-SECTION-S -->
+<form id="C1FM" name="C1FM" action="../jsp/rsvmodM04.jsp" method="post">
+
+<div class="inpguid">
+	<div waku>
+		<div>以下の項目を入力して「入力内容を確認」ボタンを押してください</div>
+		<div his><span class="hissu">**</span>&nbsp;の項目は必須入力です</div>
+	</div>
+</div>
+
+
+
+<div class="form-body">
+	<div class="form-title bg_2i">
+		診察券番号&nbsp;<span class="hissu">**</span>
+	</div>
+	<div class="form-inp">
+		<input class="in-def in-pNo" type="text" name="pNo" maxlength="8" value="" autocomplete="nope">
+		<div class="guiddt">（半角数字）</div>
+	</div>
+</div>
+
+<div class="form-body BIRTHX">
+	<div class="form-title bg_2i">
+		誕生日（月日）&nbsp;<span class="hissu">**</span>
+	</div>
+	
+	<div class="form-inp">
+
+
+<select name="pBDayMM" class="in-def in-pBDayMM">
+			<option value="0" selected="selected"></option>
+			<option value="01" >01</option>
+			<option value="02" >02</option>
+			<option value="03" >03</option>
+			<option value="04" >04</option>
+			<option value="05" >05</option>
+			<option value="06" >06</option>
+			<option value="07" >07</option>
+			<option value="08" >08</option>
+			<option value="09" >09</option>
+			<option value="10" >10</option>
+			<option value="11" >11</option>
+			<option value="12" >12</option>
+		</select>
+		<span>&nbsp;月&nbsp;</span>
+<select name="pBDayDD" class="in-def in-pBDayDD">
+			<option value="0" selected="selected"></option>
+			<option value="01" >01</option>
+			<option value="02" >02</option>
+			<option value="03" >03</option>
+			<option value="04" >04</option>
+			<option value="05" >05</option>
+			<option value="06" >06</option>
+			<option value="07" >07</option>
+			<option value="08" >08</option>
+			<option value="09" >09</option>
+			<option value="10" >10</option>
+			<option value="11" >11</option>
+			<option value="12" >12</option>
+			<option value="13" >13</option>
+			<option value="14" >14</option>
+			<option value="15" >15</option>
+			<option value="16" >16</option>
+			<option value="17" >17</option>
+			<option value="18" >18</option>
+			<option value="19" >19</option>
+			<option value="20" >20</option>
+			<option value="21" >21</option>
+			<option value="22" >22</option>
+			<option value="23" >23</option>
+			<option value="24" >24</option>
+			<option value="25" >25</option>
+			<option value="26" >26</option>
+			<option value="27" >27</option>
+			<option value="28" >28</option>
+			<option value="29" >29</option>
+			<option value="30" >30</option>
+			<option value="31" >31</option>
+		</select>
+		<span>&nbsp;日</span>
+	</div>
+</div>
+
+<div class="form-body" style="display:none">
+	<div class="form-title bg_2i">
+連絡先電話番号&nbsp;<span class="hissu">**</span>
+	</div>
+	
+	<div class="form-inp">
+
+
+<input class="in-def in-pTelNo" type="text" name="pTelNo" maxlength="20" value="" autocomplete="nope">	
+<!--
+		<div class="guiddt">（半角数字のみ）</div>
+		<div class="guiddt">※市外局番から入力してください</div>
+		<div class="guiddt">※ハイフン、カッコ等は不要です</div>
+-->		
+<div class="guiddt2">（半角数字のみ）<br>※市外局番から入力してください。<br>※ハイフン、カッコ等は不要です。</div>
+	</div>
+</div>
+
+<div class="form-body" style="display:none">
+	<div class="form-title bg_2i">
+メールアドレス&nbsp;<span class="hissu"></span>
+	</div>
+	
+	<div class="form-inp">
+	
+
+<input class="in-def in-pMail" type="text" name="pMail" maxlength="100" value="" autocomplete="nope">	
+		<div class="guiddt">※記入があれば、受付確認メールを送付します</div>
+<!-- 2020-02-28 -->
+		<div class="guiddt">※メールの受信制限をご使用の場合、以下のドメインからの受信許可設定を行って下さい。</div>
+<div class="guiddt">ドメインは&nbsp;<span>12123.jp</span>&nbsp;です。</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+<div class="inpguid">
+	<div waku>
+		<div>※ご本人様以外で診察を希望される方は以下にご記入ください</div>
+	</div>
+</div>
+
+<div class="form-body">
+	<div class="form-title bg_2i">
+		受診される方&nbsp;2
+	</div>
+
+	<div class="form-inp">
+
+
+		<div class="fam-sect">
+			<div class="fam-sect-block">
+				<div class="fam-sect-title">
+					・診察券番号
+				</div>
+				<div class="fam-sect-inp">
+					<input class="in-def in-pFamNo" type="text" name="pFamNo" maxlength="8" value="" autocomplete="nope">
+				</div>
+			</div>
+			<div class="fam-sect-block" style="display:">
+				<div class="fam-sect-title">
+					・誕生日（月日）
+				</div>
+				<div class="fam-sect-inp">
+					<select name="pFamBDayMM" class="in-def in-pBDayMM">
+						<option value="0" selected="selected"></option>
+						<option value="01" >01</option>
+						<option value="02" >02</option>
+						<option value="03" >03</option>
+						<option value="04" >04</option>
+						<option value="05" >05</option>
+						<option value="06" >06</option>
+						<option value="07" >07</option>
+						<option value="08" >08</option>
+						<option value="09" >09</option>
+						<option value="10" >10</option>
+						<option value="11" >11</option>
+						<option value="12" >12</option>
+					</select>
+					<span>&nbsp;月&nbsp;</span>
+					<select name="pFamBDayDD" class="in-def in-pBDayDD">
+						<option value="0" selected="selected"></option>
+						<option value="01" >01</option>
+						<option value="02" >02</option>
+						<option value="03" >03</option>
+						<option value="04" >04</option>
+						<option value="05" >05</option>
+						<option value="06" >06</option>
+						<option value="07" >07</option>
+						<option value="08" >08</option>
+						<option value="09" >09</option>
+						<option value="10" >10</option>
+						<option value="11" >11</option>
+						<option value="12" >12</option>
+						<option value="13" >13</option>
+						<option value="14" >14</option>
+						<option value="15" >15</option>
+						<option value="16" >16</option>
+						<option value="17" >17</option>
+						<option value="18" >18</option>
+						<option value="19" >19</option>
+						<option value="20" >20</option>
+						<option value="21" >21</option>
+						<option value="22" >22</option>
+						<option value="23" >23</option>
+						<option value="24" >24</option>
+						<option value="25" >25</option>
+						<option value="26" >26</option>
+						<option value="27" >27</option>
+						<option value="28" >28</option>
+						<option value="29" >29</option>
+						<option value="30" >30</option>
+						<option value="31" >31</option>
+					</select>
+					<span>&nbsp;日</span>
+				</div>
+			</div>
+		</div>
+
+
+
+		<input type="hidden" name="pGFamName" value="" >
+		<input type="hidden" name="pGFamSex" value="0" >
+		<input type="hidden" name="pGFamBDayYY" value="0" >
+		<input type="hidden" name="pGFamBDayMM" value="0" >
+		<input type="hidden" name="pGFamBDayDD" value="0" >
+	</div>
+</div>
+
+<div class="form-body">
+	<div class="form-title bg_2i">
+		受診される方&nbsp;3
+	</div>
+
+	<div class="form-inp">
+
+
+		<div class="fam-sect">
+			<div class="fam-sect-block">
+				<div class="fam-sect-title">
+					・診察券番号
+				</div>
+				<div class="fam-sect-inp">
+					<input class="in-def in-pFamNo" type="text" name="pFamNo" maxlength="8" value="" autocomplete="nope">
+				</div>
+			</div>
+			<div class="fam-sect-block" style="display:">
+				<div class="fam-sect-title">
+					・誕生日（月日）
+				</div>
+				<div class="fam-sect-inp">
+					<select name="pFamBDayMM" class="in-def in-pBDayMM">
+						<option value="0" selected="selected"></option>
+						<option value="01" >01</option>
+						<option value="02" >02</option>
+						<option value="03" >03</option>
+						<option value="04" >04</option>
+						<option value="05" >05</option>
+						<option value="06" >06</option>
+						<option value="07" >07</option>
+						<option value="08" >08</option>
+						<option value="09" >09</option>
+						<option value="10" >10</option>
+						<option value="11" >11</option>
+						<option value="12" >12</option>
+					</select>
+					<span>&nbsp;月&nbsp;</span>
+					<select name="pFamBDayDD" class="in-def in-pBDayDD">
+						<option value="0" selected="selected"></option>
+						<option value="01" >01</option>
+						<option value="02" >02</option>
+						<option value="03" >03</option>
+						<option value="04" >04</option>
+						<option value="05" >05</option>
+						<option value="06" >06</option>
+						<option value="07" >07</option>
+						<option value="08" >08</option>
+						<option value="09" >09</option>
+						<option value="10" >10</option>
+						<option value="11" >11</option>
+						<option value="12" >12</option>
+						<option value="13" >13</option>
+						<option value="14" >14</option>
+						<option value="15" >15</option>
+						<option value="16" >16</option>
+						<option value="17" >17</option>
+						<option value="18" >18</option>
+						<option value="19" >19</option>
+						<option value="20" >20</option>
+						<option value="21" >21</option>
+						<option value="22" >22</option>
+						<option value="23" >23</option>
+						<option value="24" >24</option>
+						<option value="25" >25</option>
+						<option value="26" >26</option>
+						<option value="27" >27</option>
+						<option value="28" >28</option>
+						<option value="29" >29</option>
+						<option value="30" >30</option>
+						<option value="31" >31</option>
+					</select>
+					<span>&nbsp;日</span>
+				</div>
+			</div>
+		</div>
+
+
+
+		<input type="hidden" name="pGFamName" value="" >
+		<input type="hidden" name="pGFamSex" value="0" >
+		<input type="hidden" name="pGFamBDayYY" value="0" >
+		<input type="hidden" name="pGFamBDayMM" value="0" >
+		<input type="hidden" name="pGFamBDayDD" value="0" >
+	</div>
+</div>
+
+
+<div class="confirmguid Center1">
+	<div class="Center2">
+		<button class="submitbtn btn-ef bg_0i bc_0" type="submit" >
+			<div class="dumcaps"></div>
+			<div class="caps">入力内容を確認</div>
+			<div class="arrow"></div>
+		</button>
+	</div>
+</div>
+
+<input type="hidden" name="pSessyu" value="">
+<input type="hidden" name="pCondition" value="">
+<input type="hidden" name="pComment" value="">
+<input type="hidden" name="pCure" value="">
+<input type="hidden" name="clr" value="0">
+<input type="hidden" name="pCtl" value="0">
+<input type="hidden" name="agent" value="RSV1">
+<input type="hidden" name="jobid" value="rsvmodM04">
+<input type="hidden" name="callback" value="0">
+<input type="hidden" name="ymd" value="202508250643">
+<input type="hidden" name="subno" value="01">
+<input type="hidden" name="subname" value="BB6CDC019CAD7600">
+<input type="hidden" name="pFamily" value="1">
+<input type="hidden" name="pBTemp" value="">
+
+</form>
+
+					</div>
+
+				
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<div class="nav-section">
+		<div class="Center1">
+			<div class="bodyw Center2">
+		<a bk1 class="backto" href="../jsp/JobDispatcher.jsp?agent=RSV1&jobid=rsvmodM01&callback=0">
+					<div class="backto-icon bg_1"></div>
+					<div class="backto-caps">前ページへ戻る</div>
+				</a>
+		<a bk2 class="backto" href="../jsp/JobDispatcher.jsp?agent=RSV1&jobid=rsvmodM030&callback=0&ymd=202508250643&subno=01&subname=BB6CDC019CAD7600">
+					<div class="backto-icon bg_1"></div>
+					<div class="backto-caps">前ページへ戻る</div>
+				</a>
+		<a class="goto-top" href="http://www5.tandt.co.jp/cti/hs713/index_P.html">
+					<div class="goto-top-icon"></div>
+					<div class="goto-top-caps">トップページへ戻る</div>
+				</a>
+			</div>
+		</div>	
+	</div>
+
+	<div id="fv"></div>
+	<div class="foot-section" id="footx">
+	
+<a href="http://www5.tandt.co.jp/cti/hs713/index_P.html">Presented by Time and Try.</a>
+	
+	</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

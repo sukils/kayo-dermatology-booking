@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="Shift_JIS" >
+<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+<meta http-equiv="pragma" content="no-cache" >
+<meta http-equiv="Cache-Control" content="no-cache" >
+<meta http-equiv="Expires" content="0" > 
+<meta name="viewport" content="width=device-width,initial-scale=1.0" >
+<meta name="apple-mobile-web-app-capable" content="yes" >
+<meta name="format-detection" content="telephone=no, address=no" >
+<meta name="robots" content="nofollow" >
+<title>©æçÓÈfÃ\ñótT[rXgbv</title>
+<link href="../toppage_css/res_top.css?20190703" rel="stylesheet">
+<link href="../toppage_css/palette-purple.css?20190703" rel="stylesheet">
+<script src="../toppage_js/jq3.4.1.js"></script>
+<script>
+var vURL='[URL]<br>';
+var vMAIL='';
+var vLOGO='';
+var vLOGOS='kayo.png';
+var vQR='QR_hs713.png';
+var s_y;
+function init() {try {
+	
+
+	if (vLOGO.length <= 0) {
+		$('#usr_logo_x').css('display','block');
+		$('#usr_logo_xs').css('display','block');
+		logocheck();
+	}
+	
+	if (vQR.length > 0) {
+		$('#qrcode-g').css('display','block');
+		$('#qrcode').css('display','flex');
+		$('#qr-sect-block').css('display','flex');
+	}
+
+	if (vURL.length <= 0) {
+		$('#info_url').css('display','none');
+	}
+	if (vMAIL.length <= 0) {
+		$('#info_mail').css('display','none');
+	}
+
+
+	var vAC = $('#info-access-block').html();
+	if (vAC.trim().length <= 0) {
+		$('#info-access').css('display','none');
+	}
+
+	var wY = new Date();
+	$('#copyyy').html(wY.getFullYear());
+
+	var vMap = $('#clinicmap').html();
+	if (vMap.trim().length <= 0) {
+		$('#clinicmap').css('display','none');
+	} 
+	
+	for (var i=1;i<=9;i++) {
+		try {
+			if ($('#menutext'+i)) {
+				var txt = $('#menutext'+i).html();
+				if (txt.length > 0) {
+					$('#menutext'+i+'-x').css('display','block');
+				}
+			}
+	
+		} catch(e) {}
+	}
+	
+
+	$('.modal-open').on( 'click', function(){
+
+	  var xcode = "";
+	  if ($(this).attr("id") == "LINK4501") {
+		  xcode = "4501";
+	  } else if ($(this).attr("id") == "LINK4502") {
+		  xcode = "4502";
+	  } else if ($(this).attr("id") == "LINK4503") {
+		  xcode = "4503";
+	  } else if ($(this).attr("id") == "LINK4504") {
+		  xcode = "4504";
+	  } else if ($(this).attr("id") == "LINK4505") {
+		  xcode = "4505";
+	  }
+
+	  if (document.getElementById("modal"+xcode)) {
+	  } else {
+		  return;
+      }
+	  
+	  s_y = $( window ).scrollTop(); 
+	  $('body').css( {
+		position: 'fixed',
+		width : '100%',
+		top: -1 * s_y
+	  } );
+
+	  
+	  if ($("#modal"+xcode)) {
+		  $("#modal"+xcode).fadeIn('fast');
+	      $("#modal"+xcode).scrollTop(0);
+	  }
+
+	} );
+
+	$('.modal-ins-open').on( 'click', function(){
+	  
+	  var xcode = $(this).attr("code");
+
+	  if (xcode.length <= 0) return;
+	  
+	  if (document.getElementById("modal"+xcode)) {
+	  } else {
+		  return;
+      }
+	  
+	  s_y = $( window ).scrollTop(); 
+
+	  $('body').css( {
+		position: 'fixed',
+		width : '100%',
+		top: -1 * s_y
+	  } );
+
+	  
+	  $("#modal"+xcode).fadeIn('fast');
+      $("#modal"+xcode).scrollTop(0);
+
+	} );
+
+
+	$('.modal-close').on( 'click', function(){
+
+	  $('body').attr({style : ''});
+
+	  $('html,body').prop({scrollTop:s_y});
+
+	  try {$('.modal').hide();}catch(ee){}
+
+	} );
+
+	
+} catch(e) {}}
+
+function logocheck() {
+	var image = new Image();
+	var width;
+	var height;
+
+	image.onload = function(){
+		width = image.width;
+		height = image.height;
+		
+		if (width > 100) {
+			if ((width / 3) > (height / 2)) {
+				$('#usr_logo_x').css('display','none');
+				$('#usr_logo_xs').css('display','none');
+				$('#usr-def-logo-x').css('display','block');
+			}
+		}
+
+	};
+	image.src = vLOGOS;
+}
+function test() {
+	alert($(window).scrollTop());
+}
+window.onload=init;
+</script>
+</head>
+<body class="ebody">
+
+<div class="hd Center1 grd_2">
+	<div class="bodyw Center2 fx">
+		<div class="hd-title modal-open"><span p1>fÃ\ñótT[rX</span><span p2>Appointment System Service</span></div>
+		<a class="hd-menu-jump" href="#svc-menu"><img src="../toppage_img/menuj.png"></a>
+		<div id="qrcode-g" class="hd-qr-guid">±ÌTCgÌQR</div>
+	</div>
+</div>
+
+<div class="usr-hd Center1">
+	<div class="bodyw Center2 fx">
+		<div class="usr-hd-fx">
+			<div class="usr-logo-block">
+				<div class="usr-logo" id="usr_logo_x" style="display:none"><img src="kayo.png"></div>
+			</div>
+			<div>
+				<div class="usr-hd-name">
+					©æçÓÈ
+				</div>
+				<div class="usr-hd-name-s">
+					<div class="usr-logo-s" id="usr_logo_xs" style="display:none"><img src="kayo.png"></div>
+					©æçÓÈ
+				</div>
+				<div class="usr-hd-ads">
+					<div p1>
+						<div class="icon bc_0 map-img"></div>
+						<div p1-0><div>§811-2101 ª§®SFü¬FüPÚ9-19</div><div></div></div>
+					</div>
+					<div p2>
+						<div class="icon bc_0 tel-img"></div>
+						<div p2-0><a href="tel:0926927339">092-692-7339</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="qrcode" class="usr-hd-qr">
+			<div QR class="bg_0 bc_1"><img src="QR_hs713.png"></div>
+		</div>
+	</div>
+</div>
+<!--
+<div class="Center1 bg_2">
+	<div class="bodyw Center2 multilang">
+		<div></div>
+		<div>[<a href="http://www5.tandt.co.jp/cti/hs713/index_Pe.html">English</a>]</div>
+	</div>
+</div>
+-->
+
+<div class="main-sect Center1">
+	<div class="bodyw Center2 fx">
+
+
+		<div class="menu-block">
+		
+			<div class="menu-box" id="svc-menu">
+			
+				<div class="menu-hd bg_1 deg-grd">
+					<div class="svc-menu-icon">
+						<div sq-row>
+							<div sq></div>
+							<div sq class=""></div>
+							<div sq class="bg_0"></div>
+						</div>
+						<div sq-row>
+							<div sq class=""></div>
+							<div sq class="grd_1"></div>
+							<div sq class="bg_0"></div>
+						</div>
+						<div sq-row>
+							<div sq class="bg_1"></div>
+							<div sq class="grd_1"></div>
+							<div sq class="bg_0"></div>
+						</div>
+					
+					</div>
+					T[rXj[
+				</div>
+				<div class="menu-hd-tri-x">
+					<div class="menu-triangle btc_1"></div>
+				</div>
+				
+				
+<div class="menu-item-b"><a class="menu-item " code="" href="https://www4.tandt.co.jp/rsvsys/jsp/JobDispatcher.jsp?agent=RSV1&jobid=rsvmod000&callback=0&gc=KQhkYPLO&portal=index_P.html&nj=rsvmodG01&"><div pt class="bg_0"></div><div txt>Ôót(úO)</div></a><a class="menu-item-caps " id="menutext1-x" href="https://www4.tandt.co.jp/rsvsys/jsp/JobDispatcher.jsp?agent=RSV1&jobid=rsvmod000&callback=0&gc=KQhkYPLO&portal=index_P.html&nj=rsvmodG01&" code="" style="display:none"><div tri class="bc_1"></div><div dec id="menutext1" class="bc_1 cl_3"></div></a></div> 
+<div class="menu-item-b"><a class="menu-item " code="" href="http://www4.tandt.co.jp/rsvsys/jsp/JobDispatcher.jsp?agent=RSV1&jobid=rsvmod000&callback=0&gc=KQhkYPLO&portal=index_P.html&nj=rsvmodD01&"><div pt class="bg_0"></div><div txt>»ÝÌ¨Äoóµ</div></a><a class="menu-item-caps " id="menutext2-x" href="http://www4.tandt.co.jp/rsvsys/jsp/JobDispatcher.jsp?agent=RSV1&jobid=rsvmod000&callback=0&gc=KQhkYPLO&portal=index_P.html&nj=rsvmodD01&" code="" style="display:none"><div tri class="bc_1"></div><div dec id="menutext2" class="bc_1 cl_3"></div></a></div> 
+<div class="menu-item-b"><a class="menu-item " code="" href="https://www4.tandt.co.jp/rsvsys/jsp/JobDispatcher.jsp?agent=RSV1&jobid=rsvmod000&callback=0&gc=KQhkYPLO&portal=index_P.html&nj=rsvmod101&"><div pt class="bg_0"></div><div txt>\ñÌmFEæÁ</div></a><a class="menu-item-caps " id="menutext3-x" href="https://www4.tandt.co.jp/rsvsys/jsp/JobDispatcher.jsp?agent=RSV1&jobid=rsvmod000&callback=0&gc=KQhkYPLO&portal=index_P.html&nj=rsvmod101&" code="" style="display:none"><div tri class="bc_1"></div><div dec id="menutext3" class="bc_1 cl_3"></div></a></div> 
+<!--<div class="menu-item-b"><a class="menu-item " code="" href=""><div pt class="bg_0"></div><div txt></div></a><a class="menu-item-caps " id="menutext4-x" href="" code="" style="display:none"><div tri class="bc_1"></div><div dec id="menutext4" class="bc_1 cl_3"></div></a></div> -->
+<!--<div class="menu-item-b"><a class="menu-item " code="" href=""><div pt class="bg_0"></div><div txt></div></a><a class="menu-item-caps " id="menutext5-x" href="" code="" style="display:none"><div tri class="bc_1"></div><div dec id="menutext5" class="bc_1 cl_3"></div></a></div> -->
+<!--<div class="menu-item-b"><a class="menu-item " code="" href=""><div pt class="bg_0"></div><div txt></div></a><a class="menu-item-caps " id="menutext6-x" href="" code="" style="display:none"><div tri class="bc_1"></div><div dec id="menutext6" class="bc_1 cl_3"></div></a></div> -->
+<!--<div class="menu-item-b"><a class="menu-item " code="" href=""><div pt class="bg_0"></div><div txt></div></a><a class="menu-item-caps " id="menutext7-x" href="" code="" style="display:none"><div tri class="bc_1"></div><div dec id="menutext7" class="bc_1 cl_3"></div></a></div> -->
+<!--<div class="menu-item-b"><a class="menu-item " code="" href=""><div pt class="bg_0"></div><div txt></div></a><a class="menu-item-caps " id="menutext8-x" href="" code="" style="display:none"><div tri class="bc_1"></div><div dec id="menutext8" class="bc_1 cl_3"></div></a></div> -->
+<!--<div class="menu-item-b"><a class="menu-item " code="" href=""><div pt class="bg_0"></div><div txt></div></a><a class="menu-item-caps " id="menutext9-x" href="" code="" style="display:none"><div tri class="bc_1"></div><div dec id="menutext9" class="bc_1 cl_3"></div></a></div> -->
+
+			</div>
+
+
+<div class="ssl-info">\ñEótîñÍAÂlîñÛìÌ½ßÉrrkÊMÉÄÃ»³êÜ·B</div> 
+
+			<div><a class="ope-guid bc_0 cl_0" href="pc1111.html">ìà¾<div pt class="bg_0"></div></a></div>
+
+			
+		</div>
+	
+		<div class="info-block">
+		
+			<div class="info-box">
+			
+				<div class="info-hd bg_1 deg-grd">
+					<div class="info-hd-icon"></div>
+					¨mç¹
+				</div>
+				<div class="info-text">
+
+					<br><b><span style="color:#FF0000"><BR>R7.9/20iyjÍxfÆÈÁÄ¨èÜ·<BR>R7.9/22()ÍãÌãti«jÉæéf@ÆÈÁÄ¨èÜ·<BR></span></b><b><span style="color:#FF0000"></span></b><b><span style="color:#0000FF"></span></b></span><BR><b>yWeb\ñVXeÌótÔz<BR>AÎAØAàjú ßO12:00Cßã16:00ÜÅ<BR>jú ßO12:00ÜÅißãxfj<BR>yjú ßO11:00ÜÅißãxfj<BR><span style="color:#FF0000"><BR>¦ÄÑoµsÝÌêA¨ßè©ç³çÉÒ¿Ôª­¶µÜ·ÌÅA²Ó­¾³¢B<BR><BR>Ôð¨æè¢½¾¢ÄéûàAßO12F30Aßã17F00ÜÅÉÍ@ð¨è¢¢½µÜ·Bß¬½êÍf@ð¨fè¢½µÜ·B<BR><BR>¦³Ò³ñÌ²@ª¦Ä¨èAf@ÌÔª\ªÉmÛÅ«È­ÈÁÄ«Ä¨èÜ·BãÃÌ¿ðÛÂ½ßAúÌf@Â\ð´ßµ½Æ»fµ½êAf@ÔàÅ ÁÄàótI¹³¹Ä¢½¾­êª èÜ·B</b><BR><BR><span style="color:#000000">EfÍC^[lbgótÍÅ«Ü¹ñÌÅA¼Ú²@­¾³¢B<BR>EúÌófÔðwèÅ«éVXeÅÍ²´¢Ü¹ñÌÅ²Ó­¾³¢B</span><br><br>
+<!--	<a href="javascript:void(0)" class="modal-open" id="LINK4501"></a><br><br> -->
+<!--	<a href="javascript:void(0)" class="modal-open" id="LINK4502"></a><br><br> -->
+<!--	<a href="javascript:void(0)" class="modal-open" id="LINK4503"></a><br><br> -->
+<!--	<a href="javascript:void(0)" class="modal-open" id="LINK4504"></a><br><br> -->
+<!--	<a href="javascript:void(0)" class="modal-open" id="LINK4505"></a><br><br> -->
+					
+
+				</div>
+			
+			</div>
+		
+
+		</div>
+
+	</div>
+</div>
+
+<div class="usr-sect Center1">
+	<div class="bodyw Center2">
+	
+		<div class="usr-block">
+
+			<div class="usr-def-hd">
+				<div class="usr-def-hd-icon"></div>
+				@Ì²Äà
+			</div>
+
+			<div class="usr-def-logo" id="usr-def-logo-x" style="display:none">
+				<img src="kayo.png">
+			</div>
+			
+			<div class="usr-def-box">
+				<div class="usr-def-row">
+					
+					<div d1>f@Ô</div>
+					<div d2>
+						EÎEØEàj<BR>9:00`12:30iWebót12:00ÜÅj<BR>14:00`17:00iWebót16:00ÜÅ)<BR>j<BR>9:00`12:30iWebót 12:00ÜÅ)<BR>yj<BR>9:00`12:00iWebót 11:00ÜÅ)<BR>¦yjúÍ½úÌ{A¬G·éXüÉ èÜ·B<BR>¦Ô\ñðæ¾³ê½ûÅàAûótI¹ðß¬Üµ½çf@ð¨fè¢½µÜ·B
+					</div>
+				
+				</div>
+				<div class="usr-def-row">
+					
+					<div d1>xfú</div>
+					<div d2>
+						jßãEyjßãEújEjú						
+					</div>
+				
+				</div>
+
+				<div class="usr-def-row" id="info-access">
+					
+					<div d1>ANZX</div>
+					<div d2 id="info-access-block">
+						ÅñèÌoXâ@¼SoXuºFüvoXâæèkàñ4ª<BR>JRÅüuFüwvæèkàñ7ª
+					</div>
+				
+				</div>
+
+				<div class="usr-def-row">
+					
+					<div d1>Z</div>
+					<div d2>
+						§811-2101 ª§®SFü¬FüPÚ9-19<br>
+						
+					</div>
+				
+				</div>
+
+				<div class="usr-def-row">
+					
+					<div d1>dbÔ</div>
+					<div d2t>
+						<a href="tel:0926927339">092-692-7339</a>
+					</div>
+				
+				</div>
+
+				<div class="usr-def-row" id="info_url">
+					
+					<div d1>URL</div>
+					<div d2>
+						<a href="https://k-hifuka.com/" target="_blank">NjbNHP<br></a>
+						<a href="" target="_blank"></a>
+					</div>
+				
+				</div>
+
+				<div class="usr-def-row" id="info_mail">
+					
+					<div d1>[</div>
+					<div d2>
+						<a href="mailto:"></a>
+						<a href="mailto:"></a>
+					</div>
+				
+				</div>
+
+				<div class="usr-def-row">
+					<div class="mapframe" id="clinicmap"></div>
+					</div>
+				</div>
+			</div>
+			
+			
+			
+		</div>
+	
+	</div>
+</div>
+	
+<div class="qr-sect">
+	<div class="qr-sect-block-x" id="qr-sect-block" style="display:none">
+		<div class="qr-sect-desc">±ÌTCgÌQR</div>
+		<div class="qr-sect-code bg_0"><img src="QR_hs713.png"></div>
+	</div>
+</div>
+	
+<div class="foot-section">
+
+	<div class="foot-line-0">
+	
+		<span>\¦ØÖ&nbsp;&nbsp;&nbsp;</span><a href="http://www5.tandt.co.jp/cti/hs713/index_i.html">ÈÕÅ</a><span>&nbsp;&nbsp;|&nbsp;PCEX}zp&nbsp;&nbsp;&nbsp;</span>
+
+	</div>
+	
+	<div class="foot-line-1 bg_1">
+		<a sv href="../rsvway/i0001.html">T[rXpKñ</a>
+		<div><div class="foot-icon bg_1"></div></div>
+		<a pp href="../rsvway/i0002.html">vCoV[|V[</a>
+	</div>
+	
+		<div class="foot-line-2 bg_0"><a href="http://www.tandt.co.jp/asp/rsv/medical/service.html" id="copyrights">Copyrights &copy;<span id="copyyy"></span> Time And Try Corp. -  Á¿ã¤ÜV[Y</a></div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+                                                                                                                                                                                                                                                                                                                                                                                                                

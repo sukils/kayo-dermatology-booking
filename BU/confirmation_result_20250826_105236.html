@@ -1,0 +1,303 @@
+
+
+
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="Shift_JIS" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Expires" content="0" /> 
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no, address=no">
+<title>かよ皮ふ科 - 順番受付サービス</title>
+<link href="../common/normalize.css?20250826105237" rel="stylesheet">
+<link href="../common/mobilestyle.css?20250826105237" rel="stylesheet">
+<link href="../common/palette-purple.css?20250826105237" rel="stylesheet">
+<script src="../common/rsvmod.js?20250826105237"></script>
+<style type="text/css">
+<!--
+.main-section {
+	margin-top:10px;
+	margin-bottom:40px;
+}
+.main-block {
+	margin-top:10px;	
+}
+.xbtn {
+
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+
+	border:1px solid #dddddd;
+	border-radius:6px;
+	margin:16px auto;
+	width:90%;
+	min-height:50px;
+	padding:4px 4px;
+	padding-top:6px;
+	text-decoration:none !important;
+	color:#cccccc;
+}
+.xbtn .cap1,
+.xbtn .cap2 {
+	margin-left:10px;
+	width:85%;
+}
+.xbtn .arrow {
+	background-image:url(../graphics/arrow-right-w.png);
+	background-repeat:no-repeat;
+	background-position:50% 50%;
+	width:20px;
+	height:20px;
+	border-radius:20px;
+	background-color:#cccccc;
+	margin-right:10px;
+}
+.xbtn .cap1b,
+.xbtn .cap2b {
+	margin-top:4px;
+	overflow:hidden;
+	white-space:normal;
+	word-break: break-all;
+	
+}
+
+.xbtn .cap1a span,
+.xbtn .cap2a span {
+	font-size:16px;
+	margin-left:20px;
+	text-decoration:underline;
+	color:#2693ff;
+}
+.xbtn .cap1b,
+.xbtn .cap2b {
+	margin-left:20px;
+}
+.xbtn .cap1b span,
+.xbtn .cap2b span {
+	font-size:13px;
+	text-decoration:none;
+	line-height:1.4;
+}
+.xbtn .cap2 {
+	background-image:url(../graphics/wakabaMK_sv.gif);
+	background-repeat:no-repeat;
+	background-position:0% 50%;
+	padding-left:0px;
+	margin-left:12px;
+}
+.visguid {
+	width:98%;
+	padding:0px;
+	margin:0px auto;
+	margin-top:10px;
+	margin-bottom:6px;
+}
+.visguid .visguid-dt {
+	background-color:#ffffee;
+	border:1px dashed #dddddd;
+	font-size:14px;
+	padding:8px 8px;
+	border-radius:8px;
+}
+@media screen and (max-width: 319px) {
+	.xbtn .cap1a span,
+	.xbtn .cap2a span {
+		font-size:14px;
+	}
+	.xbtn .cap1b span,
+	.xbtn .cap2b span {
+		font-size:12px;
+	}
+	.visguid .visguid-dt {
+		font-size:12px;
+	}
+
+}
+-->
+</style>
+<style type="text/css">
+<!--
+.cur-selection {
+	border-top:1px dotted #dddddd;
+	border-bottom:1px dotted #dddddd;
+	padding:6px 6px;
+	width:90%;
+	margin:0 auto;
+
+	display:flex;
+	justify-content: flex-start;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+	background-color:#fcfcfc;
+	margin-bottom:20px;
+	
+}
+.sel-icon-x {
+	margin-left:0px;
+	width:32px;
+	height:32px;
+	border-radius:32px;
+}
+.sel-icon {
+	background-image:url(../graphics/timecalendar24.png);
+	background-repeat:no-repeat;
+	background-position:50% 50%;
+	width:32px;
+	height:32px;
+	border-radius:32px;
+}
+.sels {
+	text-align:left;
+	margin-left:10px;
+}
+.sel-subname {
+	display:none;
+/*	font-size:14px; */
+	font-size:16px;
+	line-height:1.2;
+/*	font-weight:normal; */
+	font-weight:bold;
+	color:#2693ff;
+	word-break:break-all;
+}
+@media screen and (max-width: 319px) {
+	.sel-subname {
+		font-size:14px;
+		font-weight:normal; 
+	}
+}
+.sel-datetime {
+	margin-top:0px;
+}
+.sel-datetime a {
+	font-size:14px;
+	line-height:1.2;
+	color:#2693ff;
+}
+.sel-subname {
+	display:block;
+}
+.sel-datetime {
+	margin-top:6px;
+}
+-->
+</style>
+</head>
+<body>
+
+	<div class="head-section grd_2">
+		<div class="Center1">
+			<div class="bodyw Center2 fx">
+				<div class="head-title"><span p1>順番受付サービス</span>
+				</div>
+			</div>
+		</div>	
+	</div>
+	<div class="top-section">
+		<div class="Center1">
+			<div class="bodyw Center2 fx">
+		<div class="usr-name">かよ皮ふ科</div>
+				<div class="head-icon-x">
+					<div class="head-icon bg_1i"></div>
+				</div>
+			</div>
+		</div>	
+
+	</div>
+	
+	
+	<div class="main-section">
+		<div class="Center1">
+			<div class="bodyw Center2">
+
+				<div class="cur-selection">
+
+					<div class="sel-icon-x grd_0"><div class="sel-icon"></div></div>
+					<div class="sels bc_0">
+				<a class="sel-subname" href="../jsp/JobDispatcher.jsp?agent=RSV1&jobid=rsvmodM01&callback=0">
+					午前
+						</a>
+						<div class="sel-datetime">
+					<a href="../jsp/JobDispatcher.jsp?agent=RSV1&jobid=rsvmodM01&callback=0">2025 年 8 月 26 日（火）</a>
+						</div>
+					</div>
+					
+				</div>
+
+				<div class="guidcaps">
+					受付情報を入力します<br><span>- 以下よりお選びください -</span>
+				</div>
+
+				<div class="main-block">
+			
+			<a class="xbtn btn-grd" href="../jsp/JobDispatcher.jsp?agent=RSV1&jobid=rsvmodM03&callback=0&ymd=202508260742&subno=01&subname=BB6CDC019CAD7600">
+						<div class="cap1">
+							<div class="cap1a"><span>再診の方はこちらへ</span></div>
+					<div class="cap1b"><span class="cl_0" style="{#HAVECARD1CL}">※診察券をお持ちの方</span></div>
+						</div>
+						<div class="arrow bg_0i"></div>
+					</a>
+			<a class="xbtn btn-grd" href="../jsp/JobDispatcher.jsp?agent=RSV1&jobid=rsvmodM031&callback=0&ymd=202508260742&subno=01&subname=BB6CDC019CAD7600">
+						<div class="cap2">
+							<div class="cap2a"><span>初診の方はこちらへ</span></div>
+					<div class="cap2b"><span class="cl_0" style="{#HAVECARD2CL}">※診察券をお持ちでない方</span></div>
+						</div>
+						<div class="arrow bg_0i"></div>
+					</a>
+					
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<div class="nav-section">
+		<div class="Center1">
+			<div class="bodyw Center2">
+		<a class="backto" href="../jsp/JobDispatcher.jsp?agent=RSV1&jobid=rsvmodM01&callback=0">
+					<div class="backto-icon bg_1"></div>
+					<div class="backto-caps">前ページへ戻る</div>
+				</a>
+		<a class="goto-top" href="http://www5.tandt.co.jp/cti/hs713/index_P.html">
+					<div class="goto-top-icon"></div>
+					<div class="goto-top-caps">トップページへ戻る</div>
+				</a>
+			</div>
+		</div>	
+	</div>
+
+	<div id="fv"></div>
+	<div class="foot-section" id="footx">
+	
+<a href="http://www5.tandt.co.jp/cti/hs713/index_P.html">Presented by Time and Try.</a>
+	
+	</div>
+
+</body>
+</html>
+
+
+
+
+
+
+

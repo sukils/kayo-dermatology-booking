@@ -1,0 +1,553 @@
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="Shift_JIS" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Expires" content="0" /> 
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no, address=no">
+<title>かよ皮ふ科 - 順番受付サービス</title>
+<link href="../common/normalize.css?20250825095331" rel="stylesheet">
+<link href="../common/mobilestyle.css?20250825095331" rel="stylesheet">
+<link href="../common/palette-purple.css?20250825095331" rel="stylesheet">
+<script src="../common/rsvmod.js?20250825095331"></script>
+<style type="text/css">
+<!--
+.main-section {
+	margin-top:6px;
+}
+.main-block {
+	margin-top:10px;	
+}
+.guidcaps {
+	margin-top:10px;	
+	font-size:20px;
+}
+.reload {
+	display: flex;
+	justify-content: space-between;
+	padding:4px 8px;
+}
+.reload div,
+.reload div a {
+	font-size:14px;
+}
+ 
+.dt-sect {
+	box-sizing:border-box;
+	width:98%;
+	margin:0px auto;
+	padding:8px 4px;
+	border-top:1px solid #dddddd;
+}						
+.dt-top {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	flex-wrap: nowrap;
+}
+.dt-top div[subnm]{
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: row;
+}
+.dt-top div[hrefx]{
+	min-width:92px;
+	text-align:right;
+}
+.dt-icon-x {
+	width:40px;
+	height:40px;
+	border-radius:0px;
+}
+.dt-icon {
+	background-image:url(../graphics/doctor.png);
+	background-repeat:no-repeat;
+	background-position:50% 50%;
+	width:40px;
+	height:40px;
+	border-radius:0px;
+}
+.dt-subname {
+	
+	font-size:15px;
+	color:#404040;
+	padding-left:6px;
+	padding-right:6px;
+	line-height:1.2;
+	word-break:break-all;
+	padding-top:0px;
+	font-weight:bold;
+	box-sizing:border-box;
+
+}
+.dt-subcaps {
+	font-size:12px;
+	font-weight:normal;
+	line-height:1.2;
+	word-break:break-all;
+	padding-top:4px;
+	padding-bottom:6px;
+	font-weight:bold;
+
+}
+.dt-href a {
+	display:flex;
+	align-items:center;
+	height:32px;
+	padding-left:12px;
+	border:0px solid #cccccc;
+	border-radius:50px;
+	margin-left:auto;
+	margin-right:0px;
+	color:#ffffff;
+	font-size:14px;
+	text-decoration:none;
+	background-image:url(../graphics/arrow-right-circle.png);
+	background-repeat:no-repeat;
+	background-position:96% 50%;
+	line-height:1;
+}
+.dt-href a:hover {
+	border:1px solid #eeeeee;
+	box-shadow:rgba(35, 191, 219, 0.3) 0px 0px 4px 4px;
+}
+
+.dt-href span {
+	display:flex;
+	justify-content: center;
+	align-items:center;
+	height:32px;
+	border:0px solid #cccccc;
+	border-radius:50px;
+	margin-left:auto;
+	margin-right:0px;
+	font-size:14px;
+	line-height:1;
+	background-color:#eeeeee;
+}
+.dt-href span[over],
+.dt-href span[msg] {
+	display:none;
+}
+.dt-over {
+	min-height:0px;
+}
+.dt-over a,
+.dt-over span {
+	display:none;
+}
+.dt-over span[over],
+.dt-over span[msg] {
+	padding-top:12px;
+	display:block;
+	font-size:14px;
+}
+
+.dt-sts0 {
+	margin-top:12px;
+	font-size:14px;
+	color:#666666;
+}
+.dt-sts {
+	margin-top:12px;
+	display:flex;
+	justify-content: flex-start;
+}
+.dt-sts-su {
+	font-size:14px;
+	color:#666666;
+}
+.dt-sts-su span {
+	font-size:16px;
+	font-weight:bold;
+	color:#008040;
+}
+
+.dt-sts1 {
+	margin-top:12px;
+	display:flex;
+	justify-content: flex-start;
+	align-items:center;
+}
+.dt-sts-numx {
+	font-size:14px;
+	color:#666666;
+}
+.dt-sts-num {
+	font-size:18px;
+	font-weight:bold;
+	color:#4d4cff;
+	margin-left:8px;
+}
+.dt-sts-num span {
+	font-size:14px;
+	font-weight:normal;
+	color:#666666;
+	margin-left:4px;
+}
+
+
+.dt-sts-wait {
+	font-size:14px !important;
+	color:#666666;
+}
+.dt-sts-wait span {
+	font-size:16px !important;
+	font-weight:bold;
+	color:#008040;
+	padding-left:4px;
+	padding-right:4px;
+}
+.dt-msg {
+	margin-top:12px;
+	font-size:14px;
+	color:#008040;
+	word-break:break-all;
+}
+.dt-next {
+	margin-top:12px;
+	border-top:1px dashed #dddddd;
+	padding-top:6px;
+}
+.dt-next-d {
+	font-size:14px;
+	color:#666666;
+}
+.dt-next-d0 {
+	font-size:14px;
+	color:#008040;
+	padding-left:6px;
+	padding-right:6px;
+}
+.dt-next-href span {
+	font-size:14px;
+}
+.dt-next-href a {
+	font-size:14px;
+	text-decoration:underline;
+	color:#2693ff;
+}
+.dt-cap {
+	margin-top:20px;
+	background-color:#f0f0f0;
+
+	font-size:14px;
+	color:#404040;
+	padding:6px;
+} 
+.dt-cap div[capa] {
+	text-align:right;
+	font-size:12px;
+	display:none;
+}
+.dt-cap div[capb] {
+	text-align:right;
+	font-size:14px;
+}
+.dt-cap span[capc] {
+	font-size:12px;
+	margin-right:6px;
+} 
+.visguid {
+	width:98%;
+	padding:0px;
+	margin:0px auto;
+	margin-top:10px;
+	margin-bottom:6px;
+}
+.visguid .visguid-dt {
+	background-color:#ffffee;
+	border:1px dashed #dddddd;
+	font-size:14px;
+	padding:8px 8px;
+	border-radius:8px;
+}
+@media screen and (max-width: 319px) {
+.dt-top div[hrefx]{
+	min-width:78px;
+	text-align:right;
+}
+.dt-icon-x {
+	width:32px;
+	height:32px;
+}
+.dt-icon {
+	width:32px;
+	height:32px;
+}
+.dt-subname {
+	font-size:14px;
+	padding-right:2px;
+}
+.dt-subcaps {
+	font-size:12px;
+}
+.dt-href a {
+	display:flex;
+	align-items:center;
+	height:28px;
+	padding-left:12px;
+	border:0px solid #cccccc;
+	border-radius:26px;
+	margin-left:auto;
+	margin-right:0px;
+	color:#ffffff;
+	font-size:12px;
+	text-decoration:none;
+	background-image:url(../graphics/next.png);
+	background-repeat:no-repeat;
+	background-position:88% 50%;
+	line-height:1;
+}
+.dt-href span {
+	display:flex;
+	justify-content: center;
+	align-items:center;
+	height:28px;
+	border:0px solid #cccccc;
+	border-radius:50px;
+	margin-left:auto;
+	margin-right:0px;
+	font-size:12px;
+	line-height:1;
+	background-color:#eeeeee;
+}
+.dt-cap div[capa] {
+	display:block;
+}
+.dt-cap div[capb] {
+	margin-top:4px;
+}
+.dt-cap span[capc] {
+	display:none;
+} 
+
+.dt-over span[over],
+.dt-over span[msg] {
+	font-size:12px !important;
+}
+
+.dt-sts0 {
+	font-size:12px !important;
+}
+.dt-sts-su {
+	font-size:12px !important;
+}
+.dt-sts-su span {
+	font-size:14px !important;
+}
+.dt-sts-wait {
+	font-size:12px !important;
+}
+.dt-sts-wait span {
+	font-size:14px !important;
+}
+.dt-msg {
+	font-size:12px !important;
+}
+.dt-next-d {
+	font-size:12px !important;
+}
+.dt-next-d0 {
+	font-size:12px !important;
+}
+.dt-next-href span {
+	font-size:12px !important;
+}
+.dt-next-href a {
+	font-size:12px !important;
+}
+.visguid .visguid-dt {
+	font-size:12px;
+}
+
+.dt-sts-numx {
+	font-size:12px !important;
+}
+.dt-sts-num {
+	font-size:14px !important;
+}
+.dt-sts-num span {
+	font-size:12px !important;
+}
+
+
+}
+.visguid .visguid-dt {
+	
+}
+-->
+</style>
+</head>
+<body>
+
+	<div class="head-section grd_2">
+		<div class="Center1">
+			<div class="bodyw Center2 fx">
+				<div class="head-title"><span p1>順番受付サービス</span>
+				</div>
+			</div>
+		</div>	
+	</div>
+	<div class="top-section">
+		<div class="Center1">
+			<div class="bodyw Center2 fx">
+		<div class="usr-name">かよ皮ふ科</div>
+				<div class="head-icon-x">
+					<div class="head-icon bg_1i"></div>
+				</div>
+			</div>
+		</div>	
+
+	</div>
+	
+	
+	<div class="main-section">
+		<div class="Center1">
+			<div class="bodyw Center2">
+
+				<div class="reload">
+					<div></div>
+			<div>[<a class="cl_0" href="../jsp/JobDispatcher.jsp;jsessionid=7897315FCA6CC610BEB0EF28DF06C6C3?q=20250825095331&agent=RSV1&jobid=rsvmodM01&callback=0">&nbsp;最新表示&nbsp;</a>]</div>
+				</div>
+				<div class="guidcaps">
+			8月25日（月）<br><span>-- 本日分 --</span>
+				</div>
+
+				<div class="main-block">
+
+<div class="dt-sect">
+	
+	<div class="dt-top">
+		<div subnm>
+			<div class="dt-icon-x grd_1"><div class="dt-icon"></div></div>
+			<div class="dt-subname">午前<div class="dt-subcaps" style=""></div></div>
+		</div>
+		<div hrefx>
+			<div class="dt-href"><a class="sbjtx bg_0" href="../jsp/JobDispatcher.jsp;jsessionid=7897315FCA6CC610BEB0EF28DF06C6C3?q=20250825095331&agent=RSV1&jobid=rsvmodM02&callback=0&ymd=202508250643&subno=01&subname=BB6CDC019CAD7600&newtimetotime=1200">受付中</a></div>
+		</div>
+	</div>
+
+	<div class="dt-over"><a class="sbjtx bg_0" href="../jsp/JobDispatcher.jsp;jsessionid=7897315FCA6CC610BEB0EF28DF06C6C3?q=20250825095331&agent=RSV1&jobid=rsvmodM02&callback=0&ymd=202508250643&subno=01&subname=BB6CDC019CAD7600&newtimetotime=1200">受付中</a></div>
+
+	<div class="dt-sts">
+		<div class="dt-sts-su">待ち人数&nbsp;&nbsp;<span>33</span>&nbsp;人</div>
+		<div class="dt-sts-wait"></div>
+	</div>
+
+
+	<div class="dt-cap">
+		<div capa>＊受付枠のお申込み時間＊</div>
+		<div capb><span capc>お申込み時間</span>9:15&nbsp;〜&nbsp;12:00</div>
+	</div>
+</div>		
+
+<div class="dt-sect">
+	
+	<div class="dt-top">
+		<div subnm>
+			<div class="dt-icon-x grd_1"><div class="dt-icon"></div></div>
+			<div class="dt-subname">午後<div class="dt-subcaps" style=""></div></div>
+		</div>
+		<div hrefx>
+			<div class="dt-href"><span class="sbjtx" style="color:#0080ff">準備中</span></div>
+		</div>
+	</div>
+
+	<div class="dt-over"><span class="sbjtx" style="color:#0080ff">準備中</span></div>
+
+
+
+	<div class="dt-cap">
+		<div capa>＊受付枠のお申込み時間＊</div>
+		<div capb><span capc>お申込み時間</span>14:15&nbsp;〜&nbsp;16:00</div>
+	</div>
+</div>		
+
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="nav-section">
+		<div class="Center1">
+			<div class="bodyw Center2">
+		<a class="goto-top" href="http://www5.tandt.co.jp/cti/hs713/index_P.html">
+					<div class="goto-top-icon"></div>
+					<div class="goto-top-caps">トップページへ戻る</div>
+				</a>
+			</div>
+		</div>	
+	</div>
+
+	<div id="fv"></div>
+	<div class="foot-section" id="footx">
+	
+<a href="http://www5.tandt.co.jp/cti/hs713/index_P.html">Presented by Time and Try.</a>
+	
+	</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+ 
+
+
+
+
+
+
+

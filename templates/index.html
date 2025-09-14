@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>かよ皮膚科 - 予約管理システム</title>
+    
+    <!-- PWA設定 -->
+    <meta name="theme-color" content="#4CAF50">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="皮膚科予約">
+    <meta name="msapplication-TileColor" content="#4CAF50">
+    <meta name="msapplication-tap-highlight" content="no">
+    
+    <!-- マニフェストファイル -->
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    
+    <!-- アイコン -->
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='icons/icon-192x192.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ url_for('static', filename='icons/icon-192x192.png') }}">
+    <link rel="icon" type="image/png" sizes="512x512" href="{{ url_for('static', filename='icons/icon-512x512.png') }}">
+    
+    <!-- スタイルシート -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">🏥 かよ皮膚科</h1>
+            <p class="subtitle">予約管理システム</p>
+        </header>
+
+        <main class="main">
+            <div class="welcome-section">
+                <h2>ようこそ！</h2>
+                <p>かよ皮膚科の予約を簡単に行い、Googleカレンダーに自動登録できます。</p>
+            </div>
+
+            <div class="action-buttons">
+                <a href="{{ url_for('booking_form') }}" class="btn btn-primary">
+                    📅 新規予約
+                </a>
+                <a href="{{ url_for('advance_booking') }}" class="btn btn-secondary">
+                    ⏰ 事前予約
+                </a>
+                <a href="{{ url_for('booking_history') }}" class="btn btn-secondary">
+                    📋 予約履歴
+                </a>
+                
+                <!-- PWAインストールボタン -->
+                <button id="install-button" class="btn btn-install" style="display: none;">
+                    📱 アプリをインストール
+                </button>
+                
+                <!-- 手動インストール案内 -->
+                <div id="manual-install-guide" class="manual-install-guide" style="display: none;">
+                    <h3>📱 アプリをインストールする方法</h3>
+                    <div class="install-steps">
+                        <div class="step">
+                            <strong>Chrome（Android）の場合：</strong>
+                            <p>1. メニュー（⋮）をタップ<br>
+                            2. 「アプリをインストール」を選択</p>
+                        </div>
+                        <div class="step">
+                            <strong>Safari（iPhone）の場合：</strong>
+                            <p>1. 共有ボタン（□↑）をタップ<br>
+                            2. 「ホーム画面に追加」を選択</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-cards">
+                <div class="info-card">
+                    <h3>🎯 簡単予約</h3>
+                    <p>患者番号と誕生日を入力するだけで、自動で予約が完了します。</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>📱 カレンダー連携</h3>
+                    <p>予約完了後、Googleカレンダーに自動で登録されます。</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>📊 履歴管理</h3>
+                    <p>過去の予約履歴を確認でき、統計情報も表示されます。</p>
+                </div>
+            </div>
+
+            <div class="hospital-info">
+                <h3>🏥 病院情報</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <strong>名称:</strong> {{ config.hospital_info.name }}
+                    </div>
+                    <div class="info-item">
+                        <strong>住所:</strong> {{ config.hospital_info.address }}
+                    </div>
+                    <div class="info-item">
+                        <strong>電話:</strong> {{ config.hospital_info.phone }}
+                    </div>
+                    <div class="info-item">
+                        <strong>Web:</strong> 
+                        <a href="{{ config.hospital_info.web_url }}" target="_blank" class="link">
+                            {{ config.hospital_info.web_url }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2025 かよ皮膚科予約管理システム</p>
+        </footer>
+    </div>
+
+    <!-- PWA機能のスクリプト -->
+    <script src="{{ url_for('static', filename='js/pwa.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

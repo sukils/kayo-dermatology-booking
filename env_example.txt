@@ -1,0 +1,34 @@
+# かよ皮膚科予約管理アプリ - 環境変数設定例
+# 本番環境では、これらの値を実際の値に置き換えてください
+
+# 病院情報
+HOSPITAL_NAME=かよ皮膚科
+HOSPITAL_ADDRESS=〒811-2101 福岡県糟屋郡宇美町宇美１丁目9-19
+HOSPITAL_PHONE=092-692-7339
+HOSPITAL_WEB_URL=https://www5.tandt.co.jp/cti/hs713/index_p.html
+
+# 予約設定
+DEFAULT_TIME=09:15
+MAX_RETRIES=3
+TIMEOUT=30
+
+# Google Calendar（使用する場合）
+GOOGLE_CALENDAR_ENABLED=true
+GOOGLE_CALENDAR_ID=primary
+GOOGLE_CALENDAR_TIMEZONE=Asia/Tokyo
+
+# メール設定（使用する場合）
+EMAIL_ENABLED=true
+EMAIL_SMTP_SERVER=smtp.gmail.com
+EMAIL_SMTP_PORT=587
+EMAIL_USE_TLS=true
+EMAIL_USERNAME=your-email@gmail.com
+EMAIL_PASSWORD=your-app-password
+EMAIL_FROM_EMAIL=your-email@gmail.com
+EMAIL_FROM_NAME=かよ皮膚科予約管理システム
+EMAIL_DEFAULT_RECIPIENT=your-email@gmail.com
+
+# アプリケーション設定
+PORT=5000
+FLASK_ENV=production
+

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>メール送信機能テスト - かよ皮膚科予約管理</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <style>
+        .test-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .email-form {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+        
+        .test-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .test-btn:hover {
+            background: #218838;
+            transform: translateY(-2px);
+        }
+        
+        .test-btn:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .status-display {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+        
+        .status-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .status-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .status-info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        
+        .email-preview {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .email-preview h4 {
+            margin-top: 0;
+            color: #495057;
+        }
+        
+        .config-info {
+            background: #e9ecef;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .config-info h3 {
+            margin-top: 0;
+            color: #495057;
+        }
+        
+        .config-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            padding: 8px 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .config-label {
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        .config-value {
+            color: #6c757d;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="test-container">
+            <h1>📧 メール送信機能テスト</h1>
+            <p>かよ皮膚科予約管理システムのメール送信機能をテストできます。</p>
+            
+            <div class="config-info">
+                <h3>⚙️ 現在のメール設定</h3>
+                <div id="emailConfig">
+                    <div class="config-item">
+                        <span class="config-label">状態:</span>
+                        <span class="config-value">確認中...</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="email-form">
+                <h3>📤 テストメール送信</h3>
+                <div class="form-group">
+                    <label for="recipientEmail">送信先メールアドレス:</label>
+                    <input type="email" id="recipientEmail" placeholder="test@example.com" required>
+                </div>
+                
+                <button class="test-btn" onclick="sendTestEmail()" id="sendBtn">
+                    🚀 テストメールを送信
+                </button>
+                
+                <div id="emailStatus" style="display: none;"></div>
+            </div>
+            
+            <div class="email-preview">
+                <h4>📋 送信されるメールの内容</h4>
+                <p>以下の内容のテストメールが送信されます：</p>
+                <ul>
+                    <li><strong>件名:</strong> 🎉 かよ皮膚科 予約完了確認 - 2025-08-30</li>
+                    <li><strong>内容:</strong> テスト用の予約完了確認メール</li>
+                    <li><strong>形式:</strong> HTML + プレーンテキスト</li>
+                    <li><strong>予約番号:</strong> 99999（テスト用）</li>
+                </ul>
+            </div>
+            
+            <div class="config-info">
+                <h3>💡 使用方法</h3>
+                <ol>
+                    <li>送信先のメールアドレスを入力</li>
+                    <li>「テストメールを送信」ボタンをクリック</li>
+                    <li>メール送信の成功・失敗を確認</li>
+                    <li>受信したメールの内容を確認</li>
+                </ol>
+                
+                <h3>⚠️ 注意事項</h3>
+                <ul>
+                    <li>実際のメールアドレスを入力してください</li>
+                    <li>Gmailを使用する場合は「アプリパスワード」が必要です</li>
+                    <li>設定ファイル（config/config.json）でメール設定を確認してください</li>
+                    <li>スパムフォルダも確認してください</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ページ読み込み時の初期化
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('メール送信機能テストページが読み込まれました');
+            checkEmailStatus();
+        });
+        
+        // メール送信機能の状況を確認
+        async function checkEmailStatus() {
+            try {
+                const response = await fetch('/api/email-status');
+                const data = await response.json();
+                
+                if (data.success) {
+                    displayEmailConfig(data);
+                } else {
+                    displayEmailConfig({
+                        enabled: false,
+                        message: '設定の取得に失敗しました'
+                    });
+                }
+            } catch (error) {
+                console.error('メール状況確認エラー:', error);
+                displayEmailConfig({
+                    enabled: false,
+                    message: 'エラーが発生しました'
+                });
+            }
+        }
+        
+        // メール設定情報を表示
+        function displayEmailConfig(config) {
+            const configDiv = document.getElementById('emailConfig');
+            
+            configDiv.innerHTML = `
+                <div class="config-item">
+                    <span class="config-label">状態:</span>
+                    <span class="config-value ${config.enabled ? 'status-success' : 'status-error'}">
+                        ${config.enabled ? '有効' : '無効'}
+                    </span>
+                </div>
+                <div class="config-item">
+                    <span class="config-label">SMTPサーバー:</span>
+                    <span class="config-value">${config.smtp_server || '未設定'}</span>
+                </div>
+                <div class="config-item">
+                    <span class="config-label">SMTPポート:</span>
+                    <span class="config-value">${config.smtp_port || '未設定'}</span>
+                </div>
+                <div class="config-item">
+                    <span class="config-label">送信元メール:</span>
+                    <span class="config-value">${config.from_email || '未設定'}</span>
+                </div>
+                <div class="config-item">
+                    <span class="config-label">デフォルト送信先:</span>
+                    <span class="config-value">${config.default_recipient || '未設定'}</span>
+                </div>
+                <div class="config-item">
+                    <span class="config-label">メッセージ:</span>
+                    <span class="config-value">${config.message || ''}</span>
+                </div>
+            `;
+            
+            // 送信ボタンの状態を更新
+            const sendBtn = document.getElementById('sendBtn');
+            if (sendBtn) {
+                sendBtn.disabled = !config.enabled;
+                if (!config.enabled) {
+                    sendBtn.textContent = '❌ メール送信機能が無効です';
+                }
+            }
+        }
+        
+        // テストメールを送信
+        async function sendTestEmail() {
+            const recipientEmail = document.getElementById('recipientEmail').value.trim();
+            const sendBtn = document.getElementById('sendBtn');
+            const statusDiv = document.getElementById('emailStatus');
+            
+            if (!recipientEmail) {
+                showStatus('送信先メールアドレスを入力してください', 'error');
+                return;
+            }
+            
+            // 送信ボタンを無効化
+            sendBtn.disabled = true;
+            sendBtn.textContent = '🔄 送信中...';
+            
+            try {
+                const response = await fetch('/api/test-email', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        recipient_email: recipientEmail
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    showStatus(`✅ ${data.message}<br>送信先: ${data.recipient}`, 'success');
+                } else {
+                    showStatus(`❌ ${data.message}`, 'error');
+                }
+                
+            } catch (error) {
+                console.error('テストメール送信エラー:', error);
+                showStatus(`❌ エラーが発生しました: ${error.message}`, 'error');
+            } finally {
+                // 送信ボタンを再有効化
+                sendBtn.disabled = false;
+                sendBtn.textContent = '🚀 テストメールを送信';
+            }
+        }
+        
+        // ステータスを表示
+        function showStatus(message, type) {
+            const statusDiv = document.getElementById('emailStatus');
+            statusDiv.style.display = 'block';
+            statusDiv.className = `status-display status-${type}`;
+            statusDiv.innerHTML = message;
+            
+            // 5秒後に自動で非表示
+            setTimeout(() => {
+                statusDiv.style.display = 'none';
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

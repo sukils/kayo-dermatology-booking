@@ -1,0 +1,557 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="Shift_JIS" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Expires" content="0" /> 
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no, address=no">
+<title>かよ皮ふ科 - 順番受付サービス</title>
+<link href="../common/normalize.css?20250827105107" rel="stylesheet">
+<link href="../common/mobilestyle.css?20250827105107" rel="stylesheet">
+<link href="../common/palette-purple.css?20250827105107" rel="stylesheet">
+<script src="../common/rsvmod.js?20250827105107"></script>
+<style type="text/css">
+<!--
+.main-section {
+	margin-top:26px;
+	margin-bottom:40px;
+}
+.main-block {
+	margin-top:20px;	
+}
+-->
+</style>
+<style type="text/css">
+<!--
+.guidcaps span {
+	font-size:14px;
+}
+.guidcaps[err] {
+    color:#ff0000;
+}
+@media screen and (max-width: 319px) {
+	.guidcaps {
+		font-size:16px;
+	}
+}
+.sucicon-x {
+	margin:0 auto;
+	width:60px;
+	height:60px;
+	border-radius:60px;
+	margin-bottom:16px;
+}
+.sucicon {
+	width:60px;
+	height:60px;
+	border-radius:60px;
+	background-image:url(../graphics/check32.png);
+	background-repeat:no-repeat;
+	background-position:50% 50%;
+}
+.form-section {
+	width:98%;
+	margin:0 auto;
+	font-size:14px;
+}
+.form-section * {
+	font-size:14px;
+}
+
+.visguid {
+	background-color:#f9f9f9;
+	border:1px solid #dddddd;
+	border-radius:6px;
+
+	padding:4px;
+	margin-bottom:8px;
+}
+.visguid .visguid-hd {
+	color:#0059b3;
+	padding:6px 4px;
+	font-size:14px;
+}
+.visguid .visguid-dt {
+	background-color:#ffffff;
+	border:1px dotted #dddddd;
+	border-radius:6px;
+	padding:8px;
+}
+.visguid .visguid-dt-x {
+	margin-top:8px;
+	font-size:14px;
+}
+.visguid .visguid-dt-x:first-child {
+	margin-top:0px;
+	font-size:14px;
+}
+.visguid {
+	display:none;
+}
+
+
+.monshin-message {
+	font-size:14px;
+	color:#ff265c;
+}
+
+.monshin-button {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+
+	border:1px solid #dddddd;
+	border-radius:6px;
+	margin:16px auto;
+	width:90%;
+	height:50px;
+	text-decoration:none !important;
+	color:#cccccc;
+	cursor:pointer;
+	outline:none;
+}
+.monshin-button .cap1 {
+	margin-left:10px;
+	font-size:14px;
+	text-decoration:underline;
+}
+.monshin-button .arrow {
+	background-image:url(../graphics/arrow-right-w.png);
+	background-repeat:no-repeat;
+	background-position:50% 50%;
+	width:20px;
+	height:20px;
+	border-radius:20px;
+	background-color:#cccccc;
+	margin-right:10px;
+}
+button:hover,
+button:active,
+button:focus {
+    outline: none;
+}
+button::-moz-focus-inner{ /*Firefox用*/
+    border: none;
+}
+
+.inpguid {
+	background-color:#f9f9f9;
+	border-top:1px solid #dddddd;
+	border-left:1px solid #dddddd;
+	border-right:1px solid #dddddd;
+	padding:4px;
+}
+.inpguid > div[waku] {
+	border:1px dotted #dddddd;
+	background-color:#ffffcc;
+	padding:6px;
+}
+.inpguid > div[waku] > div {
+	font-size:14px;
+}
+.inpguid > div[mada] {
+	padding:8px;
+	color:#ff4c79;
+	border:1px dotted #ff4c79 !important;
+	background-color:#ffffff !important;
+	margin-bottom:6px;
+	border-radius:6px;
+}
+.inpguid > div[mada] > div {
+	font-size:14px;
+	text-align:center;
+	color:#ff4c79;
+}
+
+@media screen and (max-width: 319px) {
+	.inpguid > div[waku] > div {
+		font-size:12px;
+	}
+	.inpguid > div[mada] > div {
+		font-size:12px;
+	}
+}
+
+.errhd {
+	background-color:#f9f9f9;
+	border-top:1px solid #dddddd;
+	border-left:1px solid #dddddd;
+	border-right:1px solid #dddddd;
+	padding:4px;
+}
+.errhd > div[waku] {
+	border:1px solid #ff7396;
+	background-color:#ffffcc;
+	padding:6px;
+}
+.errhd > div[waku] > div {
+	color:#ff0000;
+	font-size:14px;
+}
+.errhd > div[waku] > div[err] {
+	text-align:center;
+}
+@media screen and (max-width: 319px) {
+	.errhd > div[waku] > div {
+		font-size:12px;
+	}
+}
+
+.form-body {
+	box-sizing:border-box;
+	width:100%;
+	background-color:#f9f9f9;
+	border-top:1px solid #dddddd;
+	border-left:1px solid #dddddd;
+	border-right:1px solid #dddddd;
+}
+
+.form-title {
+	background-color:#f9f9f9;
+	padding:10px;
+	padding-left:10px;
+	font-size:14px;
+	color:#404040;
+	/* font-weight:bold; */
+	
+}
+.form-inp {
+	background-color:#ffffff;
+	padding:10px;
+	padding-bottom:10px;
+}
+.form-inp span {
+	font-size:12px;
+}
+.input-check {
+	font-size:15px;
+	color:#0000ff;
+	line-height:1.4;
+}
+.input-check[nm] {
+	line-height:1.6;
+}
+.input-check[mm] {
+	font-size:14px;
+}
+.input-check[cc] {
+	color:#777777;
+}
+.input-check-g {
+	border:1px dotted #cccccc;
+	background-color:#ffffff;
+	border-radius:4px;
+	padding:10px;
+	display:none;
+}
+
+.input-check-g div {
+	font-size:14px;
+	color:#794cff;
+}
+.rno {
+	font-size:16px !important;
+	font-weight:bold;
+	color:#008c69;
+}
+
+.form-desc {
+	box-sizing:border-box;
+	width:100%;
+	background-color:#ffffcc;
+	border-top:1px solid #dddddd;
+	border-left:1px solid #dddddd;
+	border-right:1px solid #dddddd;
+}
+
+.form-desc div[gd] {
+	font-size:14px;
+	padding:10px;
+}
+
+.confirmguid {
+	box-sizing:border-box;
+	width:100%;
+	border-top:1px solid #dddddd;
+	padding:10px;
+	padding-top:20px;
+	padding-bottom:30px;
+}
+.confirmguid-o {
+	box-sizing:border-box;
+	width:100%;
+	padding:10px;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.submitbtn {
+
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+
+	border:1px solid #dddddd;
+	border-radius:50px;
+	margin:10px auto;
+	width:90%;
+	height:50px;
+	color:#cccccc;
+	outline:none;
+	cursor:pointer;
+}
+.submitbtn .caps {
+	font-size:18px;
+	font-weight:bold;
+	color:#ffffff;
+}
+.submitbtn .dumcaps {
+	width:24px;
+	height:24px;
+	padding:0;
+	margin-left:8px;
+}
+.submitbtn .arrow {
+	background-image:url(../graphics/arrow-w.png);
+	background-repeat:no-repeat;
+	background-position:50% 50%;
+	padding:0;
+	width:24px;
+	height:24px;
+	margin-right:8px;
+}
+
+.gotohome {
+	width:70%;
+	border-radius:50px;
+	background-color:#ffffff;
+	border:1px solid #00b386;
+	cursor:pointer;
+	text-align:center;
+	outline:none;
+	font-size:14px;
+	display:block;
+	padding:10px 5px;
+	text-decoration:none;
+	color:#00b386;
+}
+.gotohome:hover {
+	background-color:#eef7ff;
+}
+@media screen and (max-width: 319px) {
+	.gotohome {
+		width:90%;
+		border-radius:40px;
+		font-size:14px;
+	}
+}
+@media screen and (max-width: 319px) {
+	.submitbtn {
+		border-radius:40px;
+		margin:10px auto;
+		width:96%;
+		height:40px;
+		color:#cccccc;
+		outline:none;
+		cursor:pointer;
+	}
+	.submitbtn .caps {
+		font-size:14px;
+	}
+	.submitbtn .dumcaps {
+		margin-left:4px;
+	}
+	.submitbtn .arrow {
+		margin-right:4px;
+	}
+}
+-->
+</style>
+<style type="text/css">
+<!--
+
+
+
+-->
+</style>
+</head>
+<body>
+
+	<div class="head-section grd_2">
+		<div class="Center1">
+			<div class="bodyw Center2 fx">
+				<div class="head-title"><span p1>順番受付サービス</span>
+				</div>
+			</div>
+		</div>	
+	</div>
+	<div class="top-section">
+		<div class="Center1">
+			<div class="bodyw Center2 fx">
+		<div class="usr-name">かよ皮ふ科</div>
+				<div class="head-icon-x">
+					<div class="head-icon bg_1i"></div>
+				</div>
+			</div>
+		</div>	
+
+	</div>
+	
+	
+	<div class="main-section">
+		<div class="Center1">
+			<div class="bodyw Center2">
+
+				<div class="sucicon-x grd_0">
+					<div class="sucicon"></div>
+				</div>
+				<div class="guidcaps">
+					ご利用ありがとうございます<br><span>- 受付は完了しました -</span>
+				</div>
+
+
+				<div class="main-block">
+
+					<div class="form-section">
+
+<div class="visguid">
+	<div class="visguid-hd">ご来院に際して...</div>
+	<div class="visguid-dt">
+
+
+
+
+	</div>
+</div>
+
+
+
+<div class="form-body">
+	<div class="form-title">
+		受診科目
+	</div>
+	<div class="form-inp">
+		<div class="input-check" nm>午前</div>
+	</div>
+</div>
+
+<div class="form-body">
+	<div class="form-title">
+		受診日
+	</div>
+	<div class="form-inp">
+		<div class="input-check">2025 年 8 月 27 日（水）</div>
+	</div>
+</div>
+
+
+
+<div class="form-body">
+	<div class="form-title">
+		お名前
+	</div>
+	<div class="form-inp">
+		<div class="input-check">池田　豊&nbsp;&nbsp;様</div>
+	</div>
+</div>
+
+
+
+
+<div class="form-body">
+	<div class="form-title">
+		受付番号
+	</div>
+	<div class="form-inp">
+		<div class="input-check"><span class="rno">55</span></div>
+
+		<div class="input-check-g">
+		</div>
+
+	</div>
+</div>
+
+
+
+
+
+<div class="confirmguid Center1">
+<a class="gotohome Center2 bc_0 cl_0" href="http://www5.tandt.co.jp/cti/hs713/index_P.html">トップページへ戻る</a>
+</div>
+
+					</div>
+
+				
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+	<div id="fv"></div>
+	<div class="foot-section" id="footx">
+	
+<a href="http://www5.tandt.co.jp/cti/hs713/index_P.html">Presented by Time and Try.</a>
+	
+	</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+ 
+
+
+
+
+

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>予約履歴 - かよ皮膚科予約管理システム</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">🏥 かよ皮膚科</h1>
+            <p class="subtitle">予約履歴</p>
+        </header>
+
+        <nav class="nav-menu">
+            <a href="/" class="nav-link">ホーム</a>
+            <a href="/booking" class="nav-link">予約フォーム</a>
+            <a href="/advance" class="nav-link">事前予約</a>
+            <a href="/scheduled" class="nav-link">スケジュール予約</a>
+            <a href="/history" class="nav-link active">予約履歴</a>
+        </nav>
+
+        <main class="main">
+            <div class="history-container">
+                <div class="history-header">
+                    <h2>📋 予約履歴</h2>
+                    <div class="history-actions">
+                        <button id="refreshBtn" class="btn btn-secondary">
+                            🔄 更新
+                        </button>
+                        <a href="{{ url_for('index') }}" class="btn btn-secondary">
+                            ← 戻る
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 統計情報 -->
+                <div class="stats-section">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number" id="totalBookings">0</div>
+                            <div class="stat-label">総予約数</div>
+                        </div>
+                        <div class="stat-card success">
+                            <div class="stat-number" id="successBookings">0</div>
+                            <div class="stat-label">成功</div>
+                        </div>
+                        <div class="stat-card error">
+                            <div class="stat-number" id="failedBookings">0</div>
+                            <div class="stat-label">失敗</div>
+                        </div>
+                        <div class="stat-card info">
+                            <div class="stat-number" id="calendarLinked">0</div>
+                            <div class="stat-label">カレンダー連携</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- フィルター -->
+                <div class="filter-section">
+                    <div class="filter-controls">
+                        <select id="statusFilter" class="form-select">
+                            <option value="">全てのステータス</option>
+                            <option value="success">成功</option>
+                            <option value="failed">失敗</option>
+                        </select>
+                        <input type="date" id="dateFilter" class="form-input" placeholder="日付で絞り込み">
+                        <button id="clearFilterBtn" class="btn btn-secondary">クリア</button>
+                    </div>
+                </div>
+
+                <!-- 予約一覧 -->
+                <div class="bookings-list" id="bookingsList">
+                    <!-- 予約データがここに動的に表示されます -->
+                </div>
+
+                <!-- ページネーション -->
+                <div class="pagination" id="pagination">
+                    <!-- ページネーションがここに動的に表示されます -->
+                </div>
+
+                <!-- 予約詳細モーダル -->
+                <div id="bookingModal" class="modal" style="display: none;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 id="modalTitle">予約詳細</h3>
+                            <span class="modal-close" id="modalClose">&times;</span>
+                        </div>
+                        <div class="modal-body" id="modalBody">
+                            <!-- 予約詳細がここに表示されます -->
+                        </div>
+                        <div class="modal-footer">
+                            <button id="editBtn" class="btn btn-primary">編集</button>
+                            <button id="deleteBtn" class="btn btn-secondary">削除</button>
+                            <button id="rebookBtn" class="btn btn-primary">再予約</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2025 かよ皮膚科予約管理システム</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/history.js') }}"></script>
+</body>
+</html>

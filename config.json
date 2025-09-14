@@ -1,0 +1,41 @@
+{
+  "hospital_url": "https://www5.tandt.co.jp/cti/hs713/index_p.html",
+  "booking_times": [
+    {
+      "day": "monday",
+      "time": "12:00",
+      "enabled": true
+    },
+    {
+      "day": "tuesday",
+      "time": "12:00",
+      "enabled": true
+    },
+    {
+      "day": "wednesday",
+      "time": "12:00",
+      "enabled": true
+    },
+    {
+      "day": "thursday",
+      "time": "12:00",
+      "enabled": true
+    },
+    {
+      "day": "friday",
+      "time": "12:00",
+      "enabled": true
+    }
+  ],
+  "patient_info": {
+    "name": "患者様",
+    "phone": "090-0000-0000",
+    "email": "patient@example.com"
+  },
+  "chrome_options": {
+    "headless": false,
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+  },
+  "wait_timeout": 20,
+  "retry_count": 3
+}
