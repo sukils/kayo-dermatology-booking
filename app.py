@@ -27,6 +27,11 @@ from config.email_config import get_email_manager
 email_manager = get_email_manager(app)
 
 # ログ設定
+# ログ設定（Render用）
+import os
+if not os.path.exists('logs'):
+    os.makedirs('logs')
+
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
